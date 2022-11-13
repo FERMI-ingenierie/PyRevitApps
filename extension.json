@@ -1,0 +1,18 @@
+{
+    "builtin": "False",
+    "default_enabled": "True",
+    "type": "extension",
+    "rocket_mode_compatible": "True",
+    "name": "FERMI",
+    "description": "Set of custom tools.",
+    "author": "Jérôme PETITJEAN",
+    "author_profile": "",
+    "url": "https://github.com/FERMI-ingenierie/PyRevitApps.git",
+    "website": "",
+    "image": "",
+    "templates": {
+        "author": "",
+        "docpath": ""
+    },
+    "dependencies": []
+}

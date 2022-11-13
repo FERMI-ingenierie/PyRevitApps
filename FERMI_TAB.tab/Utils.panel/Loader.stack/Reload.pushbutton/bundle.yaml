@@ -1,0 +1,12 @@
+tooltip: 
+  en_us: Reload extensions
+  fr_fr: Recharge les extensions
+engine:
+  clean: true
+title:
+  en_us: 'Reload'
+  fa: 'بارگذاری مجدد'
+  bg: 'Презареди'
+  nl_nl: 'Herladen'
+  fr_fr: 'Recharger'
+context: zero-doc
