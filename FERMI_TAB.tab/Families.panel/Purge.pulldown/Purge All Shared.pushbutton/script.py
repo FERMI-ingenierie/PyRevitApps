@@ -54,5 +54,5 @@ if __name__ == '__main__':
          for parameter in parameters:
             doc.Delete(parameter.Id)
 
-    alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
+    # alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
 
