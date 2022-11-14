@@ -37,15 +37,22 @@ __context__     = ["doc-family"]
 from Autodesk.Revit.DB import *
 from Snipets._Parameters import PyFamilySharedParameters
 from Snipets._Selection import get_all_shared_parameters
+from Snipets._Transaction import revit_transaction as updateModel
 
 
 doc = __revit__.ActiveUIDocument.Document
 uidoc = __revit__.ActiveUIDocument
 
 
+def delete_elements(doc, elements):
+    for element in elements :
+        doc.Delete(element)
+
+
+
 
 if __name__ == '__main__':
     params = get_all_shared_parameters(doc)
-    print(params)
-    for param in params:
-        print(param.Name)
+
+    @updateModel:
+    delete_elements(doc, list(params))
