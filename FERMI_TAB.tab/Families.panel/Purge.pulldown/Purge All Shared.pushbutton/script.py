@@ -50,4 +50,5 @@ if __name__ == '__main__':
         t.Start()
         parameters = get_all_shared_parameters(doc)
         Elements = List[ElementId](parameters)
+        doc.Delete(Elements)
         t.Commit()
