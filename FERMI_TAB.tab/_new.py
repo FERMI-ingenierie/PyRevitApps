@@ -22,6 +22,14 @@ To-Do:
 _____________________________________________________________________
 Author: SAS FERMI"""
 
+# ╔╗╔╔═╗╔╦╗╔═╗╔═╗
+# ║║║║ ║ ║ ║╣ ╚═╗
+# ╝╚╝╚═╝ ╩ ╚═╝╚═╝
+# progress barre : https://www.notion.so/Effective-Output-43baf34d2ca247ada8e040bcb86613a2
+
+
+
+
 # EXTRA: You can remove them.
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
@@ -55,7 +63,7 @@ from System.Collections.Generic import List # List<ElementType>() <- it's specia
 doc = __revit__.ActiveUIDocument.Document   # Document   class from RevitAPI that represents project. Used to Create, Delete, Modify and Query elements from the project.
 uidoc = __revit__.ActiveUIDocument          # UIDocument class from RevitAPI that represents Revit project opened in the Revit UI.
 app = __revit__.Application                 # Represents the Autodesk Revit Application, providing access to documents, options and other application wide data and settings.
-PATH_SCRIPT = os.path.dirname(__file__)     # Absolute path to the folder where script is placed.
+#PATH_SCRIPT = os.path.dirname(__file__)     # Absolute path to the folder where script is placed.
 
 # GLOBAL VARIABLES
 
