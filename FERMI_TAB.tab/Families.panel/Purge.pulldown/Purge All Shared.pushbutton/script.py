@@ -25,6 +25,9 @@ Author: SAS FERMI"""
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
+
+import time
+
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-family"]
 
@@ -32,7 +35,7 @@ __context__     = ["doc-family"]
 # ║║║║╠═╝║ ║╠╦╝ ║ ╚═╗
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
-
+from os import times,
 from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
 from pyrevit.forms import ProgressBar, alert
@@ -56,6 +59,7 @@ if __name__ == '__main__':
             for parameter in parameters:
                 doc.Delete(parameter.Id)
                 pb.update_progress(cur_value+1, max_value)
+                time.sleep(0.1)
 
     # alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
 
