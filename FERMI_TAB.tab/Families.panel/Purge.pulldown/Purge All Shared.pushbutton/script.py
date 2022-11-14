@@ -44,6 +44,7 @@ doc = __revit__.ActiveUIDocument.Document
 uidoc = __revit__.ActiveUIDocument
 
 
+@updateModel
 def delete_elements(doc, elements):
     for element in elements :
         doc.Delete(element)
@@ -52,7 +53,6 @@ def delete_elements(doc, elements):
 
 
 if __name__ == '__main__':
-    params = get_all_shared_parameters(doc)
+    params = list(get_all_shared_parameters(doc))
 
-    @updateModel:
-    delete_elements(doc, list(params))
+    delete_elements(doc, params)
