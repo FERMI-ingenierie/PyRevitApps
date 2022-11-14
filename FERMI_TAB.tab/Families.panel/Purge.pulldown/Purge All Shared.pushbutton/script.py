@@ -60,6 +60,7 @@ if __name__ == '__main__':
             for parameter in parameters:
                 doc.Delete(parameter.Id)
                 pb_cur_value =+1
+                print ('count : ',pb_cur_value)
                 pb.update_progress(pb_cur_value, pb_max_value)
                 time.sleep(0.05)
 
