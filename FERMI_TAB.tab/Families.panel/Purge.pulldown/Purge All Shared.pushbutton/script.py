@@ -1,33 +1,29 @@
 # -*- coding: utf-8 -*-
 __title__ = "Get and delete all shared parameters"
-__doc__ = """Version = 0.1
-Date    = November 2022
+__doc__ = """Version = 1.0
+Date    = 14 November 2022
 _____________________________________________________________________
 Description:
 
-delete all shared parameters in open family
+Delete all shared parameters in open family, no confirmation
 
 _____________________________________________________________________
 How-to:
-
 -> open a family
 -> Execute
 -> Enjoy
 _____________________________________________________________________
 Last update:
-- [November 2022]
+- [14 November 2022]
 _____________________________________________________________________
 To-Do:
-- all
+- Exceptions
 _____________________________________________________________________
-Author: SAS FERMI"""
+Author: SAS FERMI | Jérôme PETITJEAN"""
 
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
-
-import time
-
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-family"]
 
@@ -35,7 +31,6 @@ __context__     = ["doc-family"]
 # ║║║║╠═╝║ ║╠╦╝ ║ ╚═╗
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
-import time
 from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
 from pyrevit.forms import ProgressBar, alert
