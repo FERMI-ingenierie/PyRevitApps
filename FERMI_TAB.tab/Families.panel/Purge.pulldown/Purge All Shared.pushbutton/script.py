@@ -45,6 +45,8 @@ clr.AddReference("System")
 
 
 doc = __revit__.ActiveUIDocument.Document
+familyManager= doc.FamilyManager
+
 uidoc = __revit__.ActiveUIDocument
 
 
@@ -52,7 +54,7 @@ if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
     print parameters
     for parameter in parameters:
-        parameter.RemoveParameter()
+        familyManager.RemoveParameter(parameter)
 
 
 

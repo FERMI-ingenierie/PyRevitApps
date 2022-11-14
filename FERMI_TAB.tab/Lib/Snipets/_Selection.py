@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from Autodesk.Revit.DB import *
+# from Autodesk.Revit.DB import *
+from Autodesk.Revit.DB import SharedParameterElement\
+                                ,ParameterElement\
+                                ,FilteredElementCollector
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
