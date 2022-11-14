@@ -30,3 +30,10 @@ def get_all_shared_parameters(doc):
     :return:      List of shared parameters
     """
     return [parameter for parameter in get_all_parameters(doc) if isinstance(parameter, SharedParameterElement)]
+
+# def get_all_family_parameters(doc):
+#     """ Retrieve all family parameters in active doc
+#     :param doc:   current active document
+#     :return:      List of family parameters
+#     """
+#     return [parameter for parameter in get_all_parameters(doc) if isinstance(parameter, SharedParameterElement)]
