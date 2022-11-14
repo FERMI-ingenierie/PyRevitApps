@@ -25,6 +25,10 @@ Author: SAS FERMI"""
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
+
+import Autodesk.Revit.DB
+import Revit.Elements
+
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-family"]
 
@@ -49,23 +53,19 @@ uidoc = __revit__.ActiveUIDocument
 
 
 if __name__ == '__main__':
+    parameters = get_all_shared_parameters(doc)
 
-    selected_parameters = forms.select_parameters(doc)
-    if selected_parameters:
-        pass
+    with Transaction(doc) as transaction:
+        transaction.Start()
 
+        try:
+            for parameter in parameters:
+                doc.Delete(parameter.Id)
+        except Exception as e :
+            transaction.RollBack()
+            print (e)
+            forms.alert('Failed command.', exitscript=True)
 
+        transaction.Commit()
+        forms.alert('Command complete', exitscript=True)
 
-    #
-    # parameters = get_all_shared_parameters(doc)
-    #
-    # with Transaction(doc) as transaction:
-    #     transaction.Start()
-    #
-    #     try:
-    #         for parameter in parameters:
-    #             doc.Delete(parameter.Id)
-    #     except (Exception)
-    #         Forms.
-    #
-    #     transaction.Commit()
