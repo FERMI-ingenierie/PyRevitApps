@@ -25,10 +25,6 @@ Author: SAS FERMI"""
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
-
-import Autodesk.Revit.DB
-import Revit.Elements
-
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-family"]
 
@@ -40,8 +36,7 @@ __context__     = ["doc-family"]
 from Autodesk.Revit.DB import Transaction
 from Snipets._Selection import get_all_shared_parameters
 
-from pyrevit.forms import ProgressBar
-from pyrevit import forms
+from pyrevit.forms import ProgressBar, alert
 
 import clr
 clr.AddReference("System")
