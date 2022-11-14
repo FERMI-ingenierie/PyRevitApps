@@ -35,8 +35,8 @@ __context__     = ["doc-family"]
 # =====================================================================================================================
 
 from Autodesk.Revit.DB import *
-from Lib.Snipets._Parameters import PyFamilySharedParameters
-from Lib.Snipets._Selection import get_all_shared_parameters
+from Snipets._Parameters import PyFamilySharedParameters
+from Snipets._Selection import get_all_shared_parameters
 
 
 doc = __revit__.ActiveUIDocument.Document
