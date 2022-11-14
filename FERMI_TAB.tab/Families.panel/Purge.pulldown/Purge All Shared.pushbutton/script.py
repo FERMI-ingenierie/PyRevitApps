@@ -35,7 +35,7 @@ __context__     = ["doc-family"]
 # ║║║║╠═╝║ ║╠╦╝ ║ ╚═╗
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
-from os import times,
+import time
 from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
 from pyrevit.forms import ProgressBar, alert
