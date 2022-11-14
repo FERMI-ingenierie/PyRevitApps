@@ -39,6 +39,9 @@ __max_revit_ver = 2023                             # Limit your Scripts to certa
 from Autodesk.Revit.DB import *
 from Snipets._Selection import get_all_shared_parameters
 
+import clr
+clr.AddReference("System")
+from System.Collections.Generic import List
 
 
 doc = __revit__.ActiveUIDocument.Document
