@@ -51,20 +51,9 @@ uidoc = __revit__.ActiveUIDocument
 
 
 if __name__ == '__main__':
-    parameters = get_all_shared_parameters(doc)
-    print parameters
-    for parameter in parameters:
-        print parameter.Id
-    for parameter in parameters:
-        doc.Delete(parameter.Id)
-        # familyManager.RemoveParameter(parameter)
-
-
-
-    # with Transaction(doc, __title__) as t:
-    #     t.Start()
-    #     parameters = get_all_shared_parameters(doc)
-    #     print parameters.name
-    #     # Elements = List[ElementId](parameters.IntegerValue())
-    #     # doc.Delete(Elements)
-    #     t.Commit()
+    with Transaction(doc, __title__) as t:
+        t.Start()
+        parameters = get_all_shared_parameters(doc)
+        for parameter in parameters:
+            doc.Delete(parameter.Id)
+        t.Commit()
