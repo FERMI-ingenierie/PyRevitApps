@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-#! python3
 
 __title__ = "Link nested électrical connector parameters with shared parameters"
 __author__ = "SAS FERMI"
