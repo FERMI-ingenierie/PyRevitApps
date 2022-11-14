@@ -54,9 +54,6 @@ if __name__ == '__main__':
         try:
             for parameter in parameters:
                 doc.Delete(parameter.Id)
-            assert transaction.status == transaction.Started
-            alert('Failed command.', exitscript=True)
-            print (e)
-        assert transaction.status == Transaction.status.Committed
-        alert('Failure, Transaction could not be committed"', exitscript=True)
-
+                print ('transaction.status : ', transaction.status)
+        except Exception:
+            pass
