@@ -49,10 +49,13 @@ uidoc = __revit__.ActiveUIDocument
 
 if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
-
-    with Transaction(__title__) as transaction:
-         for parameter in parameters:
-            doc.Delete(parameter.Id)
+    cur_value = 0
+    max_value = len(parameters)
+    with ProgressBar(title='Erase Shared parameters ... ({value} of {max_value})') as pb:
+        with Transaction(__title__) as transaction:
+            for parameter in parameters:
+                doc.Delete(parameter.Id)
+                pb.update_progress(cur_value+1, max_value)
 
     # alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
 
