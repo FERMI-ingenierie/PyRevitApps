@@ -52,14 +52,13 @@ uidoc = __revit__.ActiveUIDocument
 
 if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
-
     pb_cur_value, pb_max_value = 0, len(parameters)
 
     with Transaction(__title__) as transaction:
         with ProgressBar(title='Erase Shared parameters ... ({value} of {max_value})') as pb:
             for parameter in parameters:
+                pb_cur_value =+ 1
                 doc.Delete(parameter.Id)
-                pb_cur_value =+1
                 print ('count : ',pb_cur_value)
                 pb.update_progress(pb_cur_value, pb_max_value)
                 time.sleep(0.05)
