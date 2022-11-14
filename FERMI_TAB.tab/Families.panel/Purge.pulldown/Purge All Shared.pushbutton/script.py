@@ -50,8 +50,8 @@ uidoc = __revit__.ActiveUIDocument
 
 if __name__ == '__main__':
 
-
-    selected_parameters = forms.select_family_parameters()
+    parameters = get_all_shared_parameters(doc)
+    selected_parameters = forms.select_family_parameters(parameters.name)
     if selected_parameters:
         pass
 
