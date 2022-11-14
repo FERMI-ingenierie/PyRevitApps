@@ -49,10 +49,15 @@ uidoc = __revit__.ActiveUIDocument
 
 
 if __name__ == '__main__':
-    with Transaction(doc, __title__) as t:
-        t.Start()
-        parameters = get_all_shared_parameters(doc)
-        print parameters.name
-        # Elements = List[ElementId](parameters.IntegerValue())
-        # doc.Delete(Elements)
-        t.Commit()
+    parameters = get_all_shared_parameters(doc)
+    print parameters
+
+
+
+    # with Transaction(doc, __title__) as t:
+    #     t.Start()
+    #     parameters = get_all_shared_parameters(doc)
+    #     print parameters.name
+    #     # Elements = List[ElementId](parameters.IntegerValue())
+    #     # doc.Delete(Elements)
+    #     t.Commit()
