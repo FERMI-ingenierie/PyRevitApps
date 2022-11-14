@@ -50,7 +50,7 @@ uidoc = __revit__.ActiveUIDocument
 if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
 
-    with Transaction(doc) as transaction:
+    with Transaction(doc,__title__) as transaction:
         transaction.Start()
 
         try:
