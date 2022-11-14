@@ -31,23 +31,32 @@ __context__     = ["doc-family"]
 # ║║║║╠═╝║ ║╠╦╝ ║ ╚═╗
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
-from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
 from pyrevit.forms import ProgressBar, alert
 from pyrevit.revit import Transaction
 
 import clr
 clr.AddReference("System")
-# from System.Collections.Generic import List
 
+# ╔═╗╦ ╦╔╗╔╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
+# ╠╣ ║ ║║║║║   ║ ║║ ║║║║╚═╗
+# ╚  ╚═╝╝╚╝╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
+# =====================================================================================================================
 
 doc = __revit__.ActiveUIDocument.Document
 uidoc = __revit__.ActiveUIDocument
 
 
+# ╔╦╗╔═╗╦╔╗╔
+# ║║║╠═╣║║║║
+# ╩ ╩╩ ╩╩╝╚╝
+# =====================================================================================================================
+
 if __name__ == '__main__':
+
     parameters = get_all_shared_parameters(doc)
-    pb_cur_value, pb_max_value = 0, len(parameters)
+    pb_cur_value = 0
+    pb_max_value =len(parameters)
 
     with Transaction(__title__) as transaction:
         with ProgressBar(title='Erase Shared parameters ... ({value} of {max_value})') as pb:
