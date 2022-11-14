@@ -57,11 +57,9 @@ if __name__ == '__main__':
     with Transaction(__title__) as transaction:
         with ProgressBar(title='Erase Shared parameters ... ({value} of {max_value})') as pb:
             for parameter in parameters:
-                pb_cur_value = pb_cur_value + 1
                 doc.Delete(parameter.Id)
-                print ('count : ',pb_cur_value)
+                pb_cur_value += 1
                 pb.update_progress(pb_cur_value, pb_max_value)
-                time.sleep(0.05)
 
     # alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
 
