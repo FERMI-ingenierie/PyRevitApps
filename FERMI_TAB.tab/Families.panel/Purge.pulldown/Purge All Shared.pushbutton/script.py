@@ -62,5 +62,9 @@ if __name__ == '__main__':
             print (e)
 
         transaction.Commit()
-        # alert('Command complete', exitscript=True)
+        Transaction.GetStatus()
+        if transaction.GetStatus() != 'TransactionCommitted':
+            alert('errer', exitscript=True)
+        else:
+            alert('ok',exitscript=True)
 
