@@ -53,7 +53,8 @@ uidoc = __revit__.ActiveUIDocument
 if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
     print parameters
-    print parameters.Id
+    for parameter in parameters:
+        print parameter.Id
     for parameter in parameters:
         doc.Delete(parameter.Id)
         # familyManager.RemoveParameter(parameter)
