@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 __title__ = "Get and delete all shared parameters"
 __doc__ = """Version = 0.1
 Date    = November 2022
@@ -53,6 +55,8 @@ def delete_elements(doc, elements):
 
 
 if __name__ == '__main__':
-    params = list(get_all_shared_parameters(doc))
-
-    delete_elements(doc, params)
+    with Transaction(doc, __title__) as t:
+        t.Start()
+        parameters = get_all_shared_parameters(doc)
+        Elements = List[ElementId](parameters)
+        t.Commit()
