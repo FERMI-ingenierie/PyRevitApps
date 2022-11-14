@@ -33,10 +33,10 @@ __context__     = ["doc-family"]
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
 
-from Autodesk.Revit.DB import Transaction, TransactionStatus
+# from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
-
 from pyrevit.forms import ProgressBar, alert
+from pyrevit.revit import Transaction
 
 import clr
 clr.AddReference("System")
@@ -50,19 +50,13 @@ uidoc = __revit__.ActiveUIDocument
 if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
 
-    with Transaction(doc,__title__) as transaction:
-        transaction.Start()
-
+    with Transaction(__title__) as transaction:
         try:
             for parameter in parameters:
                 doc.Delete(parameter.Id)
-        except Exception as e :
+            assert transaction.status == transaction.Started
             alert('Failed command.', exitscript=True)
             print (e)
-
-        if TransactionStatus.Committed != transaction.Commit():
-            transaction.RollBack()
-            alert('Failure, Transaction could not be committed"', exitscript=True)
-        else:
-            alert('ok',exitscript=True)
+        assert transaction.status == Transaction.status.Committed
+        alert('Failure, Transaction could not be committed"', exitscript=True)
 
