@@ -33,7 +33,7 @@ __context__     = ["doc-family"]
 # ╩╩ ╩╩  ╚═╝╩╚═ ╩ ╚═╝ Regular + Autodesk + pyRevit + Custom + .NET
 # =====================================================================================================================
 
-# from Autodesk.Revit.DB import Transaction, TransactionStatus
+from Autodesk.Revit.DB import Transaction, TransactionStatus
 from Snipets._Selection import get_all_shared_parameters
 from pyrevit.forms import ProgressBar, alert
 from pyrevit.revit import Transaction
@@ -51,9 +51,8 @@ if __name__ == '__main__':
     parameters = get_all_shared_parameters(doc)
 
     with Transaction(__title__) as transaction:
-        try:
-            for parameter in parameters:
-                doc.Delete(parameter.Id)
-                print ('transaction.status : ', transaction.status)
-        except Exception:
-            pass
+         for parameter in parameters:
+            doc.Delete(parameter.Id)
+
+    alert('Tous les paramètres partagés sont supprimés.', exitscript=True)
+
