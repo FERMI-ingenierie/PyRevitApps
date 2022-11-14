@@ -41,7 +41,7 @@ from Snipets._Selection import get_all_shared_parameters
 
 import clr
 clr.AddReference("System")
-from System.Collections.Generic import List
+# from System.Collections.Generic import List
 
 
 doc = __revit__.ActiveUIDocument.Document
