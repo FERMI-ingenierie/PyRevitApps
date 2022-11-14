@@ -58,9 +58,9 @@ if __name__ == '__main__':
                 doc.Delete(parameter.Id)
         except Exception as e :
             transaction.RollBack()
-            alert('Failed command.', exitscript=True)
+            # alert('Failed command.', exitscript=True)
             print (e)
 
         transaction.Commit()
-        alert('Command complete', exitscript=True)
+        # alert('Command complete', exitscript=True)
 
