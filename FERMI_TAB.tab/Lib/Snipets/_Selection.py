@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# ! python3
 
 from Autodesk.Revit.DB import *
 
