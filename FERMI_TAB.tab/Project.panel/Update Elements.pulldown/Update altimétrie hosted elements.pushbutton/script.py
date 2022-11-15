@@ -65,4 +65,4 @@ if __name__ == '__main__':
     for s in select:
         print s.Name
 
-    print (BuiltInCategory.OST_LightingFixtures)
+    print (type(BuiltInCategory.OST_LightingFixtures))
