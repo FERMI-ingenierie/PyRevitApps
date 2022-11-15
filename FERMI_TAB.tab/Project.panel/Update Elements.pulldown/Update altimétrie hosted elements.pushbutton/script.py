@@ -55,8 +55,8 @@ class Elements :
 
     @property
     def hosted(self):
-        filterFixture = ElementClassFilter(BuiltInCategory.OST_ElectricalFixtures)
-        return FilteredElementCollector.WhereElementIsElementType(filterFixture)
+        # filterFixture = ElementClassFilter(BuiltInCategory.OST_ElectricalFixtures)
+        # return FilteredElementCollector.WhereElementIsElementType(filterFixture)
 
 
 
