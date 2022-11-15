@@ -54,7 +54,7 @@ class Elements :
     @property
     def hosted(self):
         return [element for element in self.elements
-                if isinstance(element, Autodesk.Revit.DB.BuiltInCategory.OST_ElectricalFixtures)]
+                if isinstance(element.Host, Autodesk.Revit.DB.BuiltInCategory.OST_ElectricalFixtures)]
 
 
 
