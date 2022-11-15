@@ -4,8 +4,9 @@ class Pset_ElectricalDeviceCommon:
     def __init__(self):
         pass
 
-
-
+class Enumeration:
+    def __init__(self):
+        pass
 
 # RatedCurrent	P_BOUNDEDVALUE / IfcElectricCurrentMeasure
 # RatedVoltage	P_BOUNDEDVALUE / IfcElectricVoltageMeasure
