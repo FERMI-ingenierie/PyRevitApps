@@ -5,11 +5,16 @@ __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
+
+import Autodesk.Revit.DB
+
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
 
 # import os, sys, math, datetime, time
-from Autodesk.Revit.DB import *
+# from Autodesk.Revit.DB import *
+from Autodesk.Revit.DB import FilteredElementCollector,\
+                                BuiltInCategory
 # from pyrevit import revit, forms
 # from Lib.Snipets._Selection import get_selected_elements
 
@@ -36,6 +41,7 @@ class Elements :
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
+        self._Filtered =[]
 
     @property
     def elements (self):
@@ -44,6 +50,12 @@ class Elements :
     @property
     def hosts (self):
         return [element.Host for element in self.elements]
+
+    @property
+    def hosted(self):
+        return [element for element in self.elements
+                if isinstance(element, Autodesk.Revit.DB.BuiltInCategory.OST_ElectricalFixtures)]
+
 
 
 
@@ -55,8 +67,7 @@ if __name__ == '__main__':
 
     elements = Elements()
 
-    print ('Elements : ', elements.elements)
-    print ('Hosts : ', elements.hosts)
+    print ('Elements : ', elements.hosted)
 
 
 
