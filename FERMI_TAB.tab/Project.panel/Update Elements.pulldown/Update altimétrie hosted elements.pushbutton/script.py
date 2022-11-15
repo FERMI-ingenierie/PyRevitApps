@@ -47,9 +47,11 @@ app = __revit__.Application
 
 
 if __name__ == '__main__':
+    print ("go")
     select = FilteredElementCollector(doc) \
         .OfCategory(BuiltInCategory.OST_ElectricalEquipment) \
         .WhereElementIsNotElementType() \
         .ToElements()
+    print ("selected")
 
     print (select)
