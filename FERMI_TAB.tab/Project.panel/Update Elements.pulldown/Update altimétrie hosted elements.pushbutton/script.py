@@ -52,6 +52,6 @@ if __name__ == '__main__':
         .ToElements()
     print ("selected")
     for s in select:
-        print s.name
+        print s.Name
 
     print (select)
