@@ -14,7 +14,9 @@ __context__     = ["doc-project"]
 # import os, sys, math, datetime, time
 # from Autodesk.Revit.DB import *
 from Autodesk.Revit.DB import FilteredElementCollector,\
-                                BuiltInCategory
+                                BuiltInCategory,\
+                                ElementClassFilter
+
 # from pyrevit import revit, forms
 # from Lib.Snipets._Selection import get_selected_elements
 
@@ -53,8 +55,8 @@ class Elements :
 
     @property
     def hosted(self):
-        return [element for element in self.elements
-                if isinstance(element.Host, Autodesk.Revit.DB.BuiltInCategory.OST_ElectricalFixtures)]
+        filterFixture = ElementClassFilter(BuiltInCategory.OST_ElectricalFixtures)
+        return FilteredElementCollector.WhereElementIsElementType(filterFixture)
 
 
 
