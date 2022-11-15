@@ -43,7 +43,7 @@ class Elements :
 
     @property
     def hosts (self):
-        return self._elements.Host
+        return [element.Host for element in self.elements]
 
 
 
