@@ -33,13 +33,24 @@ app = __revit__.Application
 
 
 
-
-
-
-
-
-
-
+#
+#
+# from Autodesk.Revit.DB import BuiltInCategory
+#
+# class Test (BuiltInCategory.OST_LightingFixtures):
+#     def __init__(self):
+#         super(self).__init__()
+#
+#
+#
+# class Frame(object):
+#     def __init__(self, image):
+#         self.image = image
+#
+# class Eye(Frame):
+#     def __init__(self, image):
+#         super(Eye, self).__init__(image)
+#         self.some_other_defined_stuff()
 
 
 
@@ -54,4 +65,4 @@ if __name__ == '__main__':
     for s in select:
         print s.Name
 
-    print (select)
+    print (BuiltInCategory.OST_LightingFixtures)
