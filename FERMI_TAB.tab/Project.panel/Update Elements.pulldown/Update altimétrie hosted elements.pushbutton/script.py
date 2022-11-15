@@ -40,11 +40,15 @@ app = __revit__.Application
 
 if __name__ == '__main__':
     print ("go")
-    select = FilteredElementCollector(doc) \
+    selected = FilteredElementCollector(doc) \
         .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
         .WhereElementIsNotElementType() \
         .ToElements()
-    print ("selected")
-    for s in select:
-        print (s, " / ", s.Name, " / ",s.Host)
+
+    hosted = [select.Hots for select in selected]
+
+
+    print ("hosted")
+    for h in hosted:
+        print (h, " / ", h)
 
