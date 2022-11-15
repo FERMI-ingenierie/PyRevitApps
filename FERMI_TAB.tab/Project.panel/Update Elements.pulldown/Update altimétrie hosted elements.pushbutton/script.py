@@ -45,7 +45,7 @@ if __name__ == '__main__':
         .WhereElementIsNotElementType() \
         .ToElements()
 
-    hosted = [select.Hots for select in selected]
+    hosted = [select.Host for select in selected]
 
 
     print ("hosted")
