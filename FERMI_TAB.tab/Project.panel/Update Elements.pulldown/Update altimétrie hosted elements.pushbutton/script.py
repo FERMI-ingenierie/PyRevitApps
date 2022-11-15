@@ -30,7 +30,20 @@ app = __revit__.Application
 
 
 
+class Elements :
+    def __init__(self):
+        self._elements = FilteredElementCollector(doc) \
+            .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
+            .WhereElementIsNotElementType() \
+            .ToElements()
 
+    @property
+    def elements (self):
+        return self._elements
+
+    @property
+    def hosts (self):
+        return self._elements.Host
 
 
 
@@ -39,16 +52,27 @@ app = __revit__.Application
 
 
 if __name__ == '__main__':
-    print ("go")
-    selected = FilteredElementCollector(doc) \
-        .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
-        .WhereElementIsNotElementType() \
-        .ToElements()
 
-    hosted = [select.Host for select in selected]
+    elements = Elements()
+
+    print ('Elements : ', elements.elements)
+    print ('Hosts : ', elements.hosts)
 
 
-    print ("hosted")
-    for h in hosted:
-        print (h, " / ", h)
+
+
+    # print ("go")
+    # selected = FilteredElementCollector(doc) \
+    #     .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
+    #     .WhereElementIsNotElementType() \
+    #     .ToElements()
+    #
+    # hosted = [select.Host for select in selected]
+    #
+    #
+    #
+    #
+    # print ("hosted")
+    # for h in hosted:
+    #     print (h, " / ", h)
 
