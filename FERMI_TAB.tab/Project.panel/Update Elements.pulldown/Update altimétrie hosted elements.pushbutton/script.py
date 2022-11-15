@@ -46,5 +46,5 @@ if __name__ == '__main__':
         .ToElements()
     print ("selected")
     for s in select:
-        print (s, " / ", s.Name
+        print (s, " / ", s.Name)
 
