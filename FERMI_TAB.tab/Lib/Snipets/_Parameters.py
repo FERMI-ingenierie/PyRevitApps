@@ -3,6 +3,33 @@
 from Autodesk.Revit.DB import *
 from pyrevit import revit
 
+def SetParameterId():
+    pass
+
+
+def SetParameterValue():
+    pass
+
+
+        #     ElementId
+        # parameterId,
+        # ParameterValue
+        # pValue
+# INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM
+
+@classmethod
+class PyParameters:
+    def __init__(self,elements):
+        self.element = elements
+        pass
+
+    def Id(self):
+        return Element.GetParameters(BuiltInParameter.INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM)
+
+    def name(self, Id):
+        return True
+
+
 
 class PyFamilySharedParameters :
 

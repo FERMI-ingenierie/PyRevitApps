@@ -10,9 +10,10 @@ __context__     = ["doc-project"]
 
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
-                                BuiltInCategory
+                                BuiltInCategory,\
+                                BuiltInParameter
 from Snipets._Views import GetCurrentLevel
-
+from Snipets._Parameters import PyParameters
 
 
 # from pyrevit import revit, forms
@@ -62,16 +63,25 @@ class UpdateHeightHosted:
         niv = self._currentLevel.Name
         print (niv)
 
+        # SetParameterValue(
+        #     ElementId
+        # parameterId,
+        # ParameterValue
+        # pValue
+
 # Elévation par rapport au niveau
 # Niveau de nomenclature
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
 from Snipets._Views import GetCurrentLevel
+from Snipets._Parameters import PyParameters
 
 if __name__ == '__main__':
 
-    test = GetCurrentLevel(doc)
-    print (test.Name)
+    elements = Elements.hosted_elements
+    for e in elements:
+        h = e.GetParameters(BuiltInParameter.INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM)
+        print (h)
 
 
 
