@@ -57,9 +57,7 @@ class Elements :
 class UpdateHeightHosted:
     def __init__(self, *args):
         for arg in args:
-
-
-        self._elements = arg
+            self._elements = arg
 
     def getlevel (self):
         pass
