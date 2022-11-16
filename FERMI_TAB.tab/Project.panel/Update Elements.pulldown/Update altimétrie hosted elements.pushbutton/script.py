@@ -58,6 +58,7 @@ class UpdateHeightHosted:
     def __init__(self, *args):
         for arg in *args:
 
+
         self._elements = arg
 
     def getlevel (self):
@@ -72,6 +73,10 @@ class UpdateHeightHosted:
 if __name__ == '__main__':
 
     elements = Elements().hosted_elements
+
+    from Snipets._Views import GetCurrentLevel
+
+    print GetCurrentLevel
 
 
 
