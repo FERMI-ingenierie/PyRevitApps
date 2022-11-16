@@ -67,8 +67,7 @@ class UpdateHeightHosted:
 
 if __name__ == '__main__':
 
-    elements = Elements().elements
-    elements=elements.hosted_elements
+    elements = Elements().hosted_elements
 
 
 
