@@ -14,7 +14,7 @@ class GetInstanceScheduleElementLevel:
     def as_string(cls, elements):
         # parameterList = [(element.GetParameters(cls._parameter)[0].AsValueString()) for element in element]
         # parameterList = [param.decode('ISO-8859-1') for param in parameterList]
-        return [(element.GetParameters(cls._parameter)[0].AsValueString()) for element in elements]
+        return [element.GetParameters(cls._parameter)[0].AsValueString() for element in elements]
 
 
 
