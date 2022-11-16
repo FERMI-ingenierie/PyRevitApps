@@ -22,7 +22,7 @@ from System.Collections.Generic import List # List<ElementType>() <- it's specia
 
 
 from Snipets._Views import GetCurrentLevel
-from Snipets._Parameters import PyParameters
+from Snipets._Parameters import GetInstanceScheduleElementLevel
 
 
 # from pyrevit import revit, forms
@@ -38,6 +38,11 @@ doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
+
+
+
+
+
 
 
 
@@ -80,20 +85,21 @@ class UpdateHeightHosted:
 # Niveau de nomenclature
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
-from Snipets._Views import GetCurrentLevel
-from Snipets._Parameters import PyParameters
-
 if __name__ == '__main__':
 
     elements = Elements().elements
-    print (elements)
+    niveaudenomenclature = GetInstanceScheduleElementLevel(elements).as_string
 
-    for e in elements:
-        params = e.GetParameters("Niveau de nomenclature")
-        print params
-        print params[0].AsValueString()
-        # element = e.GetParameters("Niveau de nomenclature")
-        # print (element)
+    
+
+    print niveaudenomenclature
+    #
+    # for e in elements:
+    #     params = e.GetParameters("Niveau de nomenclature")
+    #     print params
+    #     print params[0].AsValueString()
+    #     # element = e.GetParameters("Niveau de nomenclature")
+    #     # print (element)
 
     # Autodesk.Revit.DB.Element.GetParameters("Niveau de nomenclature")
 

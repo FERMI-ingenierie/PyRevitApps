@@ -3,6 +3,19 @@
 from Autodesk.Revit.DB import *
 from pyrevit import revit
 
+
+@classmethod
+class GetInstanceScheduleElementLevel:
+    def __init__(self, elements):
+        self._parameter = "Niveau de nomenclature"
+        self._elements = [element.GetParameters(self._parameter) for element in elements][0]
+
+    @property
+    def as_string(self):
+        return self._elements.AsValueString()
+
+
+
 def SetParameterId():
     pass
 
