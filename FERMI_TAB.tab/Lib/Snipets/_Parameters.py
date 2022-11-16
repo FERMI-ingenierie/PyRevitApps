@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-
-from codecs import encode, decode
+import collections
 from Autodesk.Revit.DB import *
-from pyrevit import revit
 
 
 class GetInstanceScheduleElementLevel:
@@ -12,9 +10,10 @@ class GetInstanceScheduleElementLevel:
 
     @classmethod
     def as_string(cls, elements):
-        # parameterList = [(element.GetParameters(cls._parameter)[0].AsValueString()) for element in element]
-        # parameterList = [param.decode('ISO-8859-1') for param in parameterList]
-        return [element.GetParameters(cls._parameter)[0].AsValueString() for element in elements]
+        if isinstance(elements, collections.Iterable):
+            return [element.GetParameters(cls._parameter)[0].AsValueString() for element in elements]
+        else:
+            return elements.GetParameters(cls._parameter).AsValueString
 
 
 
