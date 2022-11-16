@@ -88,7 +88,7 @@ class UpdateHeightHosted:
 if __name__ == '__main__':
 
     elements = Elements().elements
-    test= GetInstanceScheduleElementLevel().as_string(elements=elements)
+    test= GetInstanceScheduleElementLevel.as_string(elements=elements)
     print (test)
 
 
