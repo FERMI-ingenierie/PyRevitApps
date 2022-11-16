@@ -86,10 +86,8 @@ if __name__ == '__main__':
     print (elements)
 
     for e in elements:
-        element = e.GetParameters("Niveau de nomenclature")
-        # print (element)
-        for e in element:
-            print (e.AsDouble())
+        element = e.GetParameters("Niveau de nomenclature").AsDouble()
+        print (element)
 
 
 
