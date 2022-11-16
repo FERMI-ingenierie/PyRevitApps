@@ -88,11 +88,10 @@ class UpdateHeightHosted:
 if __name__ == '__main__':
 
     elements = Elements().elements
-    niveaudenomenclature = GetInstanceScheduleElementLevel.as_string(elements=elements)
+    print GetInstanceScheduleElementLevel.as_string(elements=elements)
 
 
 
-    print niveaudenomenclature
     #
     # for e in elements:
     #     params = e.GetParameters("Niveau de nomenclature")
