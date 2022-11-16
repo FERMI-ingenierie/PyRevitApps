@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
     for e in elements:
         h = e.GetParameters("Niveau de nomenclature")
-        print (h)
+        print (h.AsString())
 
 
 
