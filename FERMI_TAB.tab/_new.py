@@ -22,6 +22,13 @@ To-Do:
 _____________________________________________________________________
 Author: SAS FERMI"""
 
+
+"""
+selecteur / filter : https://danimosite.wordpress.com/2017/04/16/filteredelementcollector-and-how-to-use-it-in-python-for-dynamo/
+
+
+
+"""
 # ╔╗╔╔═╗╔╦╗╔═╗╔═╗
 # ║║║║ ║ ║ ║╣ ╚═╗
 # ╝╚╝╚═╝ ╩ ╚═╝╚═╝

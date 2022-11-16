@@ -30,6 +30,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
 
 
 doc = __revit__.ActiveUIDocument.Document
+activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
@@ -39,7 +40,7 @@ app = __revit__.Application
 
 class Elements :
     def __init__(self):
-        self._elements = FilteredElementCollector(doc) \
+        self._elements = FilteredElementCollector(doc,activeview) \
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
@@ -54,15 +55,18 @@ class Elements :
         return [element for element in self._elements if element.HostFace]
 
 class UpdateHeightHosted:
-    def __init__(self, arg):
+    def __init__(self, *args):
+        for arg in *args:
+
         self._elements = arg
 
     def getlevel (self):
         pass
 
 
-
-
+# Elévation par rapport au niveau
+# Niveau de nomenclature
+# recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
 
 if __name__ == '__main__':
