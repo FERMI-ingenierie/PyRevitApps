@@ -51,6 +51,7 @@ class Elements :
     @property
     def hosted_elements(self):
         return [element for element in self._elements if element.HostFace]
+#     INSTANCE_FREE_HOST_PARAM
 
 class UpdateHeightHosted:
     def __init__(self, doc, activeview, elements):
@@ -82,7 +83,7 @@ if __name__ == '__main__':
     print (elements)
 
     for e in elements:
-        h = e.GetParameters(BuiltInParameter.INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM)
+        h = e.GetParameters("Niveau de nomenclature")
         print (h)
 
 
