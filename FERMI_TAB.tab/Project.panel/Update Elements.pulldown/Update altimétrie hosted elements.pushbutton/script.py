@@ -81,9 +81,9 @@ if __name__ == '__main__':
     elements = Elements().elements
     print (elements)
 
-    # for e in elements:
-    #     h = e.GetParameters(BuiltInParameter.INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM)
-    #     print (h)
+    for e in elements:
+        h = e.GetParameters(BuiltInParameter.INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM)
+        print (h)
 
 
 
