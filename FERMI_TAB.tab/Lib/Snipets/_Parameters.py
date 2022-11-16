@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from codecs import encode
+from codecs import encode, decode
 from Autodesk.Revit.DB import *
 from pyrevit import revit
 
@@ -13,7 +13,7 @@ class GetInstanceScheduleElementLevel:
     @classmethod
     def as_string(cls, element):
         parameterList = [(element.GetParameters(cls._parameter)[0].AsValueString()) for element in element]
-        parameterList = [param.encode("utf-8") for param in parameterList]
+        parameterList = [str(param).encode("utf-8") for param in parameterList]
         return parameterList
 
 
