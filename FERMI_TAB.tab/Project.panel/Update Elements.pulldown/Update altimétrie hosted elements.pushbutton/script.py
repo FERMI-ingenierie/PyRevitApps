@@ -55,13 +55,14 @@ class Elements :
 
     @property
     def hosted(self):
-        filter_hosted = [element.HostFace for element in self._elements if element.HostFace]
-        print (filter_hosted)
+        return [element for element in self._elements if element.HostFace]
 
-        # filterFixture = ElementClassFilter(BuiltInCategory.OST_ElectricalFixtures)
-        # return FilteredElementCollector.WhereElementIsElementType(filterFixture)
+class UpdateHeightHosted:
+    def __init__(self, arg):
+        self._elements = arg
 
-
+    def getlevel (self):
+        pass
 
 
 
@@ -70,7 +71,7 @@ class Elements :
 
 if __name__ == '__main__':
 
-    elements = Elements().hosted
+    elements = Elements()
 
 
 
