@@ -47,6 +47,7 @@ class Elements :
 
     @property
     def elements (self):
+        print (self._elements)
         return self._elements
 
     @property
