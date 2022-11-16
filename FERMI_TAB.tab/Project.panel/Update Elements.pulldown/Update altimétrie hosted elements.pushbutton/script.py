@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 __title__ = "Update altimetry of hosted elements"
 __author__ = "FERMI"
@@ -10,7 +10,7 @@ import Autodesk.Revit.DB
 
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
-
+from codecs import encode, decode
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
