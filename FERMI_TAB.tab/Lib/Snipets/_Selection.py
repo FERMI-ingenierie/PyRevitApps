@@ -16,7 +16,6 @@ def get_selected_elements(uidoc):
     """
     return [uidoc.Document.GetElement(elem_id) for elem_id in uidoc.Selection.GetElementIds()]
 
-
 def get_all_parameters(doc):
     """ Retrieve all parameters in active doc
     :param doc:   current active document
