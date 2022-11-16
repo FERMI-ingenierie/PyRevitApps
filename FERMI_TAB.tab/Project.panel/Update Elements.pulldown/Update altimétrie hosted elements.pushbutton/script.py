@@ -43,19 +43,14 @@ class Elements :
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
-        self._Filtered =[]
 
     @property
     def elements (self):
-        print (self._elements)
         return self._elements
 
     @property
-    def hosts (self):
-        return [element.Host for element in self.elements]
-
-    @property
-    def hosted(self):
+    def hosted_elements(self):
+        print ([element for element in self._elements if element.HostFace])
         return [element for element in self._elements if element.HostFace]
 
 class UpdateHeightHosted:
