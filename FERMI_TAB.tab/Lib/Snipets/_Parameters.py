@@ -9,13 +9,10 @@ class GetInstanceScheduleElementLevel:
     def __init__(self):
         self._parameter = "Niveau de nomenclature"
 
-    def _get_parameters (self, elements):
-        return [element.GetParameters(self._parameter) for element in elements][0]
-
     @classmethod
-    def as_string(cls,elements):
-        parameter = [element.GetParameters(cls._parameter) for element in elements][0]
-        return parameter.AsValueString()
+    def as_string(cls, element):
+        parameter = [element.GetParameters(cls._parameter).AsValueString() for element in element]
+        return parameter
 
 
 
