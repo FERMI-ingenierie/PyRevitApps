@@ -67,14 +67,14 @@ class UpdateHeightHosted:
 # Niveau de nomenclature
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
+from Snipets._Views import GetCurrentLevel
 
 if __name__ == '__main__':
 
     elements = Elements().hosted_elements
 
-    from Snipets._Views import GetCurrentLevel
-
-    print GetCurrentLevel
+    test = GetCurrentLevel(doc)
+    print (test)
 
 
 
