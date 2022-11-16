@@ -11,8 +11,8 @@ class GetInstanceScheduleElementLevel:
 
     @classmethod
     def as_string(cls, element):
-        parameter = [element.GetParameters(cls._parameter).AsValueString() for element in element]
-        return parameter
+        parameterList = [element.GetParameters(cls._parameter)[0].AsValueString() for element in element]
+        return parameterList
 
 
 
