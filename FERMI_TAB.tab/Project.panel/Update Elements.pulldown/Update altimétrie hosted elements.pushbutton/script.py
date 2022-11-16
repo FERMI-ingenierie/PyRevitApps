@@ -5,6 +5,9 @@ __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
+
+import Autodesk.Revit.DB
+
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
 
@@ -86,9 +89,12 @@ if __name__ == '__main__':
     print (elements)
 
     for e in elements:
-        element = e.GetParameters("Niveau de nomenclature").AsDouble()
-        print (element)
+        params = e.GetParameters("Niveau de nomenclature")
+        print params
+        # element = e.GetParameters("Niveau de nomenclature")
+        # print (element)
 
+    # Autodesk.Revit.DB.Element.GetParameters("Niveau de nomenclature")
 
 
 
