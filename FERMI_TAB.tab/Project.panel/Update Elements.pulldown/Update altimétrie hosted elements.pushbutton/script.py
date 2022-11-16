@@ -55,8 +55,8 @@ class Elements :
 
     @property
     def hosted(self):
-        hosts = [element.HostFace for element in self._elements]
-        print hosts
+        filter_hosted = [element.HostFace for element in self._elements if self._elements]
+        print (filter_hosted)
 
         # filterFixture = ElementClassFilter(BuiltInCategory.OST_ElectricalFixtures)
         # return FilteredElementCollector.WhereElementIsElementType(filterFixture)
