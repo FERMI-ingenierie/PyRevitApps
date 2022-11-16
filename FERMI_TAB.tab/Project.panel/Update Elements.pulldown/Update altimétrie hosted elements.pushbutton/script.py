@@ -12,6 +12,12 @@ __context__     = ["doc-project"]
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 BuiltInParameter
+
+import clr
+clr.AddReference("System")
+from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
+
+
 from Snipets._Views import GetCurrentLevel
 from Snipets._Parameters import PyParameters
 
@@ -19,9 +25,6 @@ from Snipets._Parameters import PyParameters
 # from pyrevit import revit, forms
 # from Lib.Snipets._Selection import get_selected_elements
 
-# import clr                                  # Common Language Runtime. Makes .NET libraries accessinble
-# clr.AddReference("System")                  # Refference System.dll for import.
-# from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
 # List_example = List[ElementId]()          # use .Add() instead of append or put python list of ElementIds in parentesis.
 
 
@@ -83,9 +86,10 @@ if __name__ == '__main__':
     print (elements)
 
     for e in elements:
-        h = e.GetParameters("Niveau de nomenclature")
-        print (h)
-        print (type(h))
+        element = e.GetParameters("Niveau de nomenclature")
+        print (element)
+        for e in element:
+            print (e)
 
 
 
