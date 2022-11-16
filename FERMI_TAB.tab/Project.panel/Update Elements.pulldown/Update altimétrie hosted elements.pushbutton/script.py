@@ -78,7 +78,7 @@ from Snipets._Parameters import PyParameters
 
 if __name__ == '__main__':
 
-    elements = Elements.hosted_elements
+    elements = Elements().elements
     print (elements)
 
     # for e in elements:
