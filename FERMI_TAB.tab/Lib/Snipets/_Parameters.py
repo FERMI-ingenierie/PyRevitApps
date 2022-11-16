@@ -13,7 +13,7 @@ class GetInstanceScheduleElementLevel:
     @classmethod
     def as_string(cls, element):
         parameterList = [(element.GetParameters(cls._parameter)[0].AsValueString()) for element in element]
-        # parameterList = [str(param).encode("utf-8") for param in parameterList]
+        parameterList = [param.decode('ISO-8859-1') for param in parameterList]
         return parameterList
 
 
