@@ -14,7 +14,8 @@ from codecs import encode, decode
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
-                                BuiltInParameter
+                                BuiltInParameter,\
+                                Element
 
 import clr
 clr.AddReference("System")

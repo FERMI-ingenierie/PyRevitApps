@@ -1,15 +1,30 @@
 # -*- coding: utf-8 -*-
+
 import collections
-from Autodesk.Revit.DB import *
+from Autodesk.Revit.DB import Element,\
+                                BuiltInParameter
+
+import clr
+clr.AddReference("System")
+from System.Collections.Generic import List
 
 
 class GetInstanceScheduleElementLevel:
     _parameter = "Niveau de nomenclature"
+
     def __init__(self):
-        self._parameter = "Niveau de nomenclature"
+        pass
 
     @classmethod
     def as_string(cls, elements):
+        """
+        Return all elements parameter 'Niveau de nomenclature' value as string
+
+        :param elements: List of elements
+        :type elements: List
+        :return: List of values as string
+        :rtype: List
+        """
         if isinstance(elements, collections.Iterable):
             return [element.GetParameters(cls._parameter)[0].AsValueString() for element in elements]
         else:
