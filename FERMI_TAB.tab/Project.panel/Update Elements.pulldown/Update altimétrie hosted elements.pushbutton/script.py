@@ -39,7 +39,6 @@ doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
-uiapp = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
 
 
 class ElementsElectricalFixtures :
