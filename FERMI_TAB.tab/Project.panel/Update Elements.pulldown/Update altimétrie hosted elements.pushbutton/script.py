@@ -89,7 +89,7 @@ if __name__ == '__main__':
     currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
     for element in elementsInView:
-        print element.get_Parameter('Niveau de nomenclature')
+        print element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
 
 
 
