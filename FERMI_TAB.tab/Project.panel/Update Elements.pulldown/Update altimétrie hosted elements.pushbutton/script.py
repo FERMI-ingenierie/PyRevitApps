@@ -95,8 +95,9 @@ if __name__ == '__main__':
         parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
         print parameter.AsValueString()
         # parameter.Set(currentLevel.Id)
-        parameter.UserModifiable().Set(True)
+        parameter.UserModifiable.fset(True)
 
+# Autodesk.Revit.DB.Parameter.UserModifiable.fset
 
 
 
