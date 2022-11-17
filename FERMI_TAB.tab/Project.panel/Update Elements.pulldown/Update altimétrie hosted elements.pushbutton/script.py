@@ -90,8 +90,7 @@ if __name__ == '__main__':
     print (elementsInView)
     for element in elementsInView:
         parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
-        parameter = parameter.AsValueString()
-        print parameter
+        print parameter.AsValueString()
         parameter.Set(currentLevel.Name)
 
 
