@@ -92,7 +92,7 @@ if __name__ == '__main__':
     currentLevel = View.GetCurrentLevel(doc=doc)
     print (elementsInView)
     print ('---------------------------------')
-    print (currentLevel)
+    print (currentLevel.Name)
 
 
 
