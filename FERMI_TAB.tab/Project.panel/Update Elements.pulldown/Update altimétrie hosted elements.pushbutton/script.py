@@ -89,7 +89,9 @@ if __name__ == '__main__':
     currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
     for element in elementsInView:
-        print element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
+        e = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
+        e = e.AsString()
+        print e
 
 
 
