@@ -89,13 +89,12 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
-    print ('--------------------')
     activeView = FER_View.GetActiveView(doc=doc)
-    print ('--------------------')
     elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
     # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    # elementsIds = [element.Id for element in elementsInView]
+    elementsIds = [element.Id for element in elementsInView]
+    selection = uidoc.Selection.SetElementIds(elementsIds)
     # print (elementsIds)
 
 
