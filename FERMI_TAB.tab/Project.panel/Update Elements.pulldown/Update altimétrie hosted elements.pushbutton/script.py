@@ -91,6 +91,8 @@ if __name__ == '__main__':
     elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
     currentLevel = View.GetCurrentLevel(doc=doc)
     print (elementsInView)
+    print ('---------------------------------')
+    print (currentLevel)
 
 
 
