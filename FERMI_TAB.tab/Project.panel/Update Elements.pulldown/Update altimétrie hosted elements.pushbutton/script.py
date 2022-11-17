@@ -57,12 +57,12 @@ class ElementsElectricalFixtures :
         return [element for element in elements if element.HostFace]
 
 
-
-def setNiveauDeNomenclature(elements, level):
-    for element in elements:
-        parameter = FER_Parameters.SetParameterValue().
-        FER_Parameters.SetParameterValue()
-        pass
+#
+# def setNiveauDeNomenclature(elements, level):
+#     for element in elements:
+#         parameter = FER_Parameters.SetParameterValue()
+#         FER_Parameters.SetParameterValue()
+#         pass
 
 
         # SetParameterValue(
