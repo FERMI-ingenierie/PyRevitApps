@@ -90,7 +90,7 @@ if __name__ == '__main__':
     print (elementsInView)
     for element in elementsInView:
         e = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
-        e = e.AsString()
+        e = e.AsValueString()
         print e
 
 
