@@ -18,7 +18,7 @@ Last update:
 - [November 2022]
 _____________________________________________________________________
 To-Do:
-- all
+- update lists in selection
 _____________________________________________________________________
 Author: SAS FERMI"""
 
@@ -30,11 +30,12 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 ElementId,\
                                 BuiltInParameter,\
-                                Element
+                                Element,ElementFilter
 from Snipets.Selection import SelectElementsInView
 from Snipets.Views import GetActiveView, GetCurrentLevel
 # from pyrevit import revit, forms
 
+ElementFilter.__doc__
 
 doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
@@ -49,7 +50,7 @@ class ElementsElectricalFixtures :
     @staticmethod
     def _get_elements(document, active_view):
         return FilteredElementCollector(document, active_view) \
-            .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
+            .OfCategory(BuiltInCategory.OST_ElectricalFOixtures,BuiltInCategory.OST_LightingFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
 
