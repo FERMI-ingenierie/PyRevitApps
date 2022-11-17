@@ -35,7 +35,6 @@ uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
 
-
 class ElementsElectricalFixtures :
     def __init__(self):
         pass
@@ -48,23 +47,25 @@ class ElementsElectricalFixtures :
             .ToElements()
 
     @classmethod
-    def elements (cls, doc, active_view):
+    def all_elements (cls, doc, active_view):
         return cls._get_elements(doc=doc, active_view=active_view)
 
-    @property
-    def hosted_elements(self):
-        return [element for element in self._elements if element.HostFace]
-#     INSTANCE_FREE_HOST_PARAM
+    @classmethod
+    def hosted_elements(cls, doc, active_view):
+        elements = cls.all_elements(doc=doc,active_view=active_view)
+        return [element for element in elements if element.HostFace]
+
+
 
 class UpdateHeightHosted:
     def __init__(self, doc, activeview, elements):
         self._doc = doc
         self._activeView = activeview
         self._elements = elements
-        self._currentLevel= GetCurrentLevel(self._doc)
+        self._currentLevel= View.GetCurrentLevel(doc=doc)
 
-    def setNiveauDeNomenclature(self):
-        niv = self._currentLevel.Name
+    @classmethod
+    def setNiveauDeNomenclature(cls, elements, level):
         print (niv)
 
         # SetParameterValue(
@@ -78,19 +79,19 @@ class UpdateHeightHosted:
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
 if __name__ == '__main__':
-    # get curent view
-    # get elements in view
+    # get curent view  > ok
+    # get elements in view   > ok
+    # filter hosted
     # Update schedule level
     # get elements parameter Elevation par rapport au niveau
     # update altimetrie shared parameter
     # end report
 
-    currentLevel = View.GetCurrentLevel(doc=doc)
     activeView = View.GetActiveView(doc=doc)
+    elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
+    currentLevel = View.GetCurrentLevel(doc=doc)
+    print (elementsInView)
 
-    elements = ElementsElectricalFixtures().elements(doc,activeview)
-
-    print (elements)
 
 
 
