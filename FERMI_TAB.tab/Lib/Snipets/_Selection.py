@@ -15,6 +15,30 @@ from Autodesk.Revit.DB import SharedParameterElement,\
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
 
+class SelectElementsInView:
+    List_ElementsIds = List[ElementId]()
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def ByElementId(cls,elements):
+        """
+        Select all element in active view.
+        By Id
+
+        :param elements: Element as iterable
+        :return: None
+        """
+        if not isinstance(elements, Iterable):
+            cls.List_ElementsIds.Add(elements.Id)
+        else:
+            for element in elements:
+                cls.List_ElementsIds.Add(element.Id)
+        return cls.List_ElementsIds
+
+
+
 def Select_elements_in_active_view_by_element(elements):
     """
     Retrieve all elements which are selected in Revit
@@ -28,11 +52,11 @@ def Select_elements_in_active_view_by_element(elements):
     List_ElementsIds = List[ElementId]()
 
     if not isinstance(elements, Iterable):
-        return List_ElementsIds.Add(elements.Id)
+        List_ElementsIds.Add(elements.Id)
     else:
         for element in elements:
             List_ElementsIds.Add(element.Id)
-        return List_ElementsIds
+    return List_ElementsIds
 
 def get_selected_elements(uidoc):
     """

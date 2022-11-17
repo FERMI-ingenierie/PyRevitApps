@@ -9,19 +9,17 @@ __max_revit_ver = 2023                             # Limit your Scripts to certa
 __context__     = ["doc-project"]
 
 from collections import Iterable
-
-import clr
-clr.AddReference("System")
-clr.AddReference("RevitServices")
-# from System.Collections.Generic import List
-# from RevitServices.Persistence import DocumentManager
-
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 ElementId,\
                                 BuiltInParameter,\
                                 Element
-from Snipets._Selection import SelectElementsInView
+
+import clr
+clr.AddReference("System")
+clr.AddReference("RevitServices")
+from System.Collections.Generic import List
+from RevitServices.Persistence import DocumentManager
 
 import Snipets._Views as FER_View
 import Snipets._Parameters as FER_Parameters
@@ -98,5 +96,5 @@ if __name__ == '__main__':
     activeView = FER_View.GetActiveView(document=doc)
     elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
     currentLevel = FER_View.GetCurrentLevel(document=doc)
-    List_ElementsIds = SelectElementsInView.ByElementId(elements=elementsInView)
+    List_ElementsIds = FER_Selection.Select_elements_in_active_view_by_element(elementsInView)
     uidoc.Selection.SetElementIds(List_ElementsIds)
