@@ -96,8 +96,8 @@ if __name__ == '__main__':
     elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
     # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    elementsIds = [element.Id for element in elementsInView]
-    print (elementsIds)
+    # elementsIds = [element.Id for element in elementsInView]
+    # print (elementsIds)
 
 
 
