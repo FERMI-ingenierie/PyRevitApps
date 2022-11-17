@@ -6,7 +6,7 @@ __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 
-import Autodesk.Revit.DB
+import Autodesk.Revit.UI.Selection
 
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
@@ -91,13 +91,21 @@ if __name__ == '__main__':
     elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
     currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    for element in elementsInView:
-        parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
-        print parameter.AsValueString()
-        # parameter.Set(currentLevel.Id)
-        parameter.UserModifiable.fset(True)
+    e = [element.Id for element in elementsInView]
+    Autodesk.Revit.UI.Selection.Selection.SetElementIds(e)
+    # for element in elementsInView:
+    #     parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
+    #     print parameter.AsValueString()
+    #     parameter.UserModifiable.(True)
 
-# Autodesk.Revit.DB.Parameter.UserModifiable.fset
+
+# Autodesk.Revit.UI.Selection.Selection.PickObjects()
+# Autodesk.Revit.UI.Selection.Selection.SetElementIds()
+# https://www.revitapidocs.com/2015/a2847bd6-bcac-9233-584f-77ca54c4a800.htm
+
+
+
+# Autodesk.Revit.DB.Parameter.UserModifiable
 
 
 
