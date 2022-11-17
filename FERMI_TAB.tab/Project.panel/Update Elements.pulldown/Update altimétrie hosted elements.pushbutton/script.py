@@ -13,11 +13,12 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 ElementId,\
                                 BuiltInParameter,\
                                 Element
-from RevitServices.Persistence import DocumentManager
 
 import clr
 clr.AddReference("System")
+clr.AddReference("RevitServices")
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
+from RevitServices.Persistence import DocumentManager
 
 import Snipets._Views as FER_View
 import Snipets._Parameters as FER_Parameters
