@@ -96,7 +96,7 @@ if __name__ == '__main__':
     # List_ElementsIds = List[type(ElementId())]()
     List_ElementsIds = List[ElementId]()
     for element in elementsInView:
-        List_ElementsIds.Add(element.id)
+        List_ElementsIds.Add(element.Id)
 
     # elementsIds. = [element.Id for element in elementsInView]
     # selection = uidoc.Selection.SetElementIds(elementsIds)
