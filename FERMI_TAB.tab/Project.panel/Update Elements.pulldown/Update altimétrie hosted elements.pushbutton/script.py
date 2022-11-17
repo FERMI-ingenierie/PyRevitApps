@@ -17,9 +17,6 @@ from RevitServices.Persistence import DocumentManager
 
 import clr
 clr.AddReference("System")
-# clr.AddReference("RevitAPI")
-# clr.AddReference("RevitServices")
-
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
 
 import Snipets._Views as FER_View
@@ -41,7 +38,7 @@ doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
-uiapp = DocumentManager.Instance.CurrentUIApplication
+uiapp = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
 
 
 class ElementsElectricalFixtures :
