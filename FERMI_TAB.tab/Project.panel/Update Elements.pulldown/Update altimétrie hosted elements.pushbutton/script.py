@@ -13,7 +13,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 ElementId,\
                                 BuiltInParameter,\
                                 Element
-# from RevitServices.Persistence import DocumentManager
+from RevitServices.Persistence import DocumentManager
 
 import clr
 clr.AddReference("System")
@@ -41,7 +41,7 @@ doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
-# uiapp = DocumentManager.Instance.CurrentUIApplication
+uiapp = DocumentManager.Instance.CurrentUIApplication
 
 
 class ElementsElectricalFixtures :
