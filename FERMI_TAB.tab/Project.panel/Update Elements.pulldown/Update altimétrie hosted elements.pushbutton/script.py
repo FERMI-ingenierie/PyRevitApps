@@ -49,19 +49,19 @@ class ElementsElectricalFixtures :
         pass
 
     @staticmethod
-    def _get_elements(doc, active_view):
-        return FilteredElementCollector(doc,active_view) \
+    def _get_elements(document, active_view):
+        return FilteredElementCollector(document, active_view) \
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
 
     @classmethod
-    def all_elements (cls, doc, active_view):
-        return cls._get_elements(doc=doc, active_view=active_view)
+    def all_elements (cls, document, active_view):
+        return cls._get_elements(document=document, active_view=active_view)
 
     @classmethod
-    def hosted_elements(cls, doc, active_view):
-        elements = cls.all_elements(doc=doc,active_view=active_view)
+    def hosted_elements(cls, document, active_view):
+        elements = cls.all_elements(document=document, active_view=active_view)
         return [element for element in elements if element.HostFace]
 
 
@@ -92,8 +92,10 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
+    print ('--------------------')
     activeView = FER_View.GetActiveView(doc=doc)
-    elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
+    print ('--------------------')
+    elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
     # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
     # elementsIds = [element.Id for element in elementsInView]
