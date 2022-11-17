@@ -98,10 +98,8 @@ if __name__ == '__main__':
     for element in elementsInView:
         List_ElementsIds.Add(element.Id)
 
-    # elementsIds. = [element.Id for element in elementsInView]
-    # selection = uidoc.Selection.SetElementIds(elementsIds)
+    selection = uidoc.Selection.SetElementIds(List_ElementsIds)
     print (List_ElementsIds)
-    print (type(List_ElementsIds))
 
     # List_viewtemplates = List[type(ListItem())]()
     #
