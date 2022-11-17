@@ -15,9 +15,10 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
 import clr
 clr.AddReference("System")
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
-import Snipets._Views as View
-import Snipets._Parameters as Parameters
-import Snipets._Selection as Selection
+import Snipets._Views as FER_View
+import Snipets._Parameters as FER_Parameters
+import Snipets._Selection as FER_Selection
+
 
 
 
@@ -57,16 +58,12 @@ class ElementsElectricalFixtures :
 
 
 
-class UpdateHeightHosted:
-    def __init__(self, doc, activeview, elements):
-        self._doc = doc
-        self._activeView = activeview
-        self._elements = elements
-        self._currentLevel= View.GetCurrentLevel(doc=doc)
+def setNiveauDeNomenclature(elements, level):
+    for element in elements:
+        parameter = FER_Parameters.SetParameterValue().
+        FER_Parameters.SetParameterValue()
+        pass
 
-    @classmethod
-    def setNiveauDeNomenclature(cls, elements, level):
-        print (niv)
 
         # SetParameterValue(
         #     ElementId
@@ -87,12 +84,12 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
-    activeView = View.GetActiveView(doc=doc)
+    activeView = FER_View.GetActiveView(doc=doc)
     elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
-    currentLevel = View.GetCurrentLevel(doc=doc)
+    currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    print ('---------------------------------')
-    print (currentLevel.Name)
+    for element in elementsInView:
+        print GetInstanceScheduleElementLevel().as_string(element)
 
 
 
