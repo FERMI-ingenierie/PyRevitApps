@@ -43,7 +43,7 @@ __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
-# __context__     = ['Walls', 'Floors', 'Roofs']    # Make your button available only when certain categories are selected. Or Revit/View Types.
+ __context__     = ['Walls', 'Floors', 'Roofs']    # Make your button available only when certain categories are selected. Or Revit/View Types.
 
 # ╦╔╦╗╔═╗╔═╗╦═╗╔╦╗╔═╗
 # ║║║║╠═╝║ ║╠╦╝ ║ ╚═╗
@@ -56,7 +56,7 @@ from Autodesk.Revit.DB import Transaction, FilteredElementCollector
 
 from pyrevit import revit, forms
 
-from Lib.Snipets._Selection import get_selected_elements
+from Lib.Snipets.Selection import get_selected_elements
 
 import clr                                  # Common Language Runtime. Makes .NET libraries accessinble
 clr.AddReference("System")                  # Refference System.dll for import.

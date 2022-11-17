@@ -1,41 +1,39 @@
 # -*- coding: UTF-8 -*-
 
-__title__ = "Update altimetry of hosted elements"
+__title__ = "Select all hosted elements"
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
+__doc__ = """Version = 1.0
+Date    = November 2022
+_____________________________________________________________________
+Description:
+Select all MEP élec elements in current view
 
-from collections import Iterable
+_____________________________________________________________________
+Last update:
+- [November 2022]
+_____________________________________________________________________
+To-Do:
+- all
+_____________________________________________________________________
+Author: SAS FERMI"""
 
 import clr
 clr.AddReference("System")
 clr.AddReference("RevitServices")
-# from System.Collections.Generic import List
-# from RevitServices.Persistence import DocumentManager
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 ElementId,\
                                 BuiltInParameter,\
                                 Element
-from Snipets._Selection import SelectElementsInView
-
-import Snipets._Views as FER_View
-import Snipets._Parameters as FER_Parameters
-import Snipets._Selection as FER_Selection
-
-
-
-
-from Snipets._Parameters import GetInstanceScheduleElementLevel
-
+from Snipets.Selection import SelectElementsInView
+from Snipets.Views import GetActiveView
 # from pyrevit import revit, forms
-# from Lib.Snipets._Selection import get_selected_elements
-
-# List_example = List[ElementId]()          # use .Add() instead of append or put python list of ElementIds in parentesis.
 
 
 doc = __revit__.ActiveUIDocument.Document
@@ -95,7 +93,7 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
-    activeView = FER_View.GetActiveView(document=doc)
+    activeView = GetActiveView(document=doc)
     elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
     currentLevel = FER_View.GetCurrentLevel(document=doc)
     List_ElementsIds = SelectElementsInView.ByElementId(elements=elementsInView)
