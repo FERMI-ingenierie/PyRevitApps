@@ -96,6 +96,7 @@ if __name__ == '__main__':
     elementsIds = [element.Id for element in elementsInView]
     # selection = uidoc.Selection.SetElementIds(elementsIds)
     print (elementsIds)
+    print (type(elementsIds))
 
 
 
