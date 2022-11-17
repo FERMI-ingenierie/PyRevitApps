@@ -5,18 +5,13 @@ __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
-
-import Autodesk.Revit.DB
-
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
-from codecs import encode, decode
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 BuiltInParameter,\
                                 Element
-
 import clr
 clr.AddReference("System")
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
@@ -25,14 +20,10 @@ from System.Collections.Generic import List # List<ElementType>() <- it's specia
 from Snipets._Views import GetCurrentLevel
 from Snipets._Parameters import GetInstanceScheduleElementLevel
 
-
 # from pyrevit import revit, forms
 # from Lib.Snipets._Selection import get_selected_elements
 
 # List_example = List[ElementId]()          # use .Add() instead of append or put python list of ElementIds in parentesis.
-
-
-
 
 
 doc = __revit__.ActiveUIDocument.Document
@@ -42,14 +33,7 @@ app = __revit__.Application
 
 
 
-
-
-
-
-
-
-
-class Elements :
+class ElementsElectricalFixtures :
     def __init__(self):
         self._elements = FilteredElementCollector(doc,activeview) \
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
@@ -87,13 +71,23 @@ class UpdateHeightHosted:
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
 if __name__ == '__main__':
+    # get curent view
+    # get elements in view
+    # Update schedule level
+    # get elements parameter Elevation par rapport au niveau
+    # update altimetrie shared parameter
+    # end report
 
-    elements = Elements().elements
-    print elements
-    print '-----------------------'
-    print type(elements)
-    test= GetInstanceScheduleElementLevel.as_string(elements=elements)
-    print (test)
+    currentLevel = GetCurrentLevel(doc)
+    elements = ElementsElectricalFixtures().elements
+    print (elements)
+
+
+
+
+
+
+    # test= GetInstanceScheduleElementLevel.as_string(elements=elements)
 
 
     #

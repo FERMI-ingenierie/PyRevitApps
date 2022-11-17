@@ -31,7 +31,6 @@ class GetInstanceScheduleElementLevel:
             return elements.GetParameters(cls._parameter).AsValueString
 
 
-
 def SetParameterId():
     pass
 
