@@ -15,9 +15,12 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
 import clr
 clr.AddReference("System")
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
+import Snipets._Views as View
+import Snipets._Parameters as Parameters
+import Snipets._Selection as Selection
 
 
-from Snipets._Views import GetCurrentLevel
+
 from Snipets._Parameters import GetInstanceScheduleElementLevel
 
 # from pyrevit import revit, forms
@@ -35,14 +38,18 @@ app = __revit__.Application
 
 class ElementsElectricalFixtures :
     def __init__(self):
-        self._elements = FilteredElementCollector(doc,activeview) \
+        pass
+
+    @staticmethod
+    def _get_elements(doc, active_view):
+        return FilteredElementCollector(doc,active_view) \
             .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
             .WhereElementIsNotElementType() \
             .ToElements()
 
-    @property
-    def elements (self):
-        return self._elements
+    @classmethod
+    def elements (cls, doc, active_view):
+        return cls._get_elements(doc=doc, active_view=active_view)
 
     @property
     def hosted_elements(self):
@@ -78,8 +85,11 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
-    currentLevel = GetCurrentLevel(doc)
-    elements = ElementsElectricalFixtures().elements
+    currentLevel = View.GetCurrentLevel(doc=doc)
+    activeView = View.GetActiveView(doc=doc)
+
+    elements = ElementsElectricalFixtures().elements(doc,activeview)
+
     print (elements)
 
 
