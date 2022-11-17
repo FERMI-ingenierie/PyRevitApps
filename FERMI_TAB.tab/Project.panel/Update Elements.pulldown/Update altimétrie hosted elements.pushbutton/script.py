@@ -5,19 +5,23 @@ __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
 __min_revit_ver__ = 2022                            # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
-
-import Autodesk.Revit.UI.Selection
-
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
 
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
+                                ElementId,\
                                 BuiltInParameter,\
                                 Element
+from RevitServices.Persistence import DocumentManager
+
 import clr
 clr.AddReference("System")
+clr.AddReference("RevitAPI")
+clr.AddReference("RevitServices")
+
 from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
+
 import Snipets._Views as FER_View
 import Snipets._Parameters as FER_Parameters
 import Snipets._Selection as FER_Selection
@@ -37,6 +41,7 @@ doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
+uiapp = DocumentManager.Instance.CurrentUIApplication
 
 
 class ElementsElectricalFixtures :
@@ -89,10 +94,14 @@ if __name__ == '__main__':
 
     activeView = FER_View.GetActiveView(doc=doc)
     elementsInView = ElementsElectricalFixtures().hosted_elements(doc=doc,active_view=activeview)
-    currentLevel = FER_View.GetCurrentLevel(doc=doc)
+    # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    e = [element.Id for element in elementsInView]
-    Autodesk.Revit.UI.Selection.Selection.SetElementIds(e)
+    elementsIds = [element.Id for element in elementsInView]
+    print (elementsIds)
+
+
+
+
     # for element in elementsInView:
     #     parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
     #     print parameter.AsValueString()
@@ -102,6 +111,8 @@ if __name__ == '__main__':
 # Autodesk.Revit.UI.Selection.Selection.PickObjects()
 # Autodesk.Revit.UI.Selection.Selection.SetElementIds()
 # https://www.revitapidocs.com/2015/a2847bd6-bcac-9233-584f-77ca54c4a800.htm
+
+# https://teocomi.com/dynamo-select-revit-element-by-id/
 
 
 
