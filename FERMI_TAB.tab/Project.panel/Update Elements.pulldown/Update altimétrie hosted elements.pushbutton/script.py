@@ -93,14 +93,27 @@ if __name__ == '__main__':
     elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
     # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
-    elementsIds = List
+    # List_ElementsIds = List[type(ElementId())]()
+    List_ElementsIds = List[ElementId]()
     for element in elementsInView:
-        elementsIds.Add(element.Id)
+        List_ElementsIds.Add(element.id)
 
     # elementsIds. = [element.Id for element in elementsInView]
     # selection = uidoc.Selection.SetElementIds(elementsIds)
-    print (elementsIds)
-    print (type(elementsIds))
+    print (List_ElementsIds)
+    print (type(List_ElementsIds))
+
+    # List_viewtemplates = List[type(ListItem())]()
+    #
+    # for name in sorted(dict_view_templates):
+    #     item = ListItem(name, dict_view_templates[name], False)
+    #     List_viewtemplates.Add(item)
+
+
+
+
+
+
 
 
 
