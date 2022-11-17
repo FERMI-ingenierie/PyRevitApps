@@ -94,8 +94,8 @@ if __name__ == '__main__':
     # currentLevel = FER_View.GetCurrentLevel(doc=doc)
     print (elementsInView)
     elementsIds = [element.Id for element in elementsInView]
-    selection = uidoc.Selection.SetElementIds(elementsIds)
-    # print (elementsIds)
+    # selection = uidoc.Selection.SetElementIds(elementsIds)
+    print (elementsIds)
 
 
 
