@@ -1,38 +1,60 @@
 # -*- coding: utf-8 -*-
 
-# from Autodesk.Revit.DB import *
-from Autodesk.Revit.DB import SharedParameterElement\
-                                ,ParameterElement\
-                                ,FilteredElementCollector
+from collections import Iterable
+
+import clr
+clr.AddReference("System")
+from System.Collections.Generic import List
+
+from Autodesk.Revit.DB import SharedParameterElement,\
+                                ParameterElement,\
+                                FilteredElementCollector,\
+                                Element,\
+                                ElementId
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
 
+def Select_elements_in_active_view_by_element(elements):
+    """
+    Retrieve all elements which are selected in Revit
+
+    :param elements: Element as iterable
+    :type elements: List[Element]()
+    :return: None
+    :rtype: None
+    """
+
+    List_ElementsIds = List[ElementId]()
+
+    if not isinstance(elements, Iterable):
+        return List_ElementsIds.Add(elements.Id)
+    else:
+        for element in elements:
+            List_ElementsIds.Add(element.Id)
+        return List_ElementsIds
 
 def get_selected_elements(uidoc):
-    """ Retrieve all elements which are selected in Revit
+    """
+    Retrieve all elements which are selected in Revit
+
     :param uidoc:   uidoc where elements are selected
+    :type uidoc:   __revit__.ActiveUIDocument
     :return:        List of elements
+    :rtype:        Element
     """
     return [uidoc.Document.GetElement(elem_id) for elem_id in uidoc.Selection.GetElementIds()]
 
-def get_all_parameters(doc):
+def get_all_parameters(document):
     """ Retrieve all parameters in active doc
-    :param doc:   current active document
+    :param document:   current active document
     :return:      List of parameters
     """
-    return FilteredElementCollector(doc).OfClass(ParameterElement)
+    return FilteredElementCollector(document).OfClass(ParameterElement)
 
-def get_all_shared_parameters(doc):
+def get_all_shared_parameters(document):
     """ Retrieve all shared parameters in active doc
-    :param doc:   current active document
+    :param document:   current active document
     :return:      List of shared parameters
     """
-    return [parameter for parameter in get_all_parameters(doc) if isinstance(parameter, SharedParameterElement)]
-
-# def get_all_family_parameters(doc):
-#     """ Retrieve all family parameters in active doc
-#     :param doc:   current active document
-#     :return:      List of family parameters
-#     """
-#     return [parameter for parameter in get_all_parameters(doc) if isinstance(parameter, SharedParameterElement)]
+    return [parameter for parameter in get_all_parameters(document) if isinstance(parameter, SharedParameterElement)]

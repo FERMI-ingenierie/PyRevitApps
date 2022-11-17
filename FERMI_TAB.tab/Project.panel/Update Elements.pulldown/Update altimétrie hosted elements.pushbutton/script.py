@@ -8,6 +8,7 @@ __min_revit_ver__ = 2022                            # Limit your Scripts to cert
 __max_revit_ver = 2023                             # Limit your Scripts to certain Revit versions if it's not compatible due to RevitAPI Changes.
 __context__     = ["doc-project"]
 
+from collections import Iterable
 from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 ElementId,\
@@ -17,7 +18,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
 import clr
 clr.AddReference("System")
 clr.AddReference("RevitServices")
-from System.Collections.Generic import List # List<ElementType>() <- it's special type of list from .NET framework that RevitAPI requires
+from System.Collections.Generic import List
 from RevitServices.Persistence import DocumentManager
 
 import Snipets._Views as FER_View
@@ -80,6 +81,9 @@ class ElementsElectricalFixtures :
 # Niveau de nomenclature
 # recup du niveau par Id : classe niveau AsElementId, Id, Elevation
 
+
+
+
 if __name__ == '__main__':
     # get curent view  > ok
     # get elements in view   > ok
@@ -89,82 +93,8 @@ if __name__ == '__main__':
     # update altimetrie shared parameter
     # end report
 
-    activeView = FER_View.GetActiveView(doc=doc)
+    activeView = FER_View.GetActiveView(document=doc)
     elementsInView = ElementsElectricalFixtures().hosted_elements(document=doc, active_view=activeview)
-    # currentLevel = FER_View.GetCurrentLevel(doc=doc)
-    print (elementsInView)
-    # List_ElementsIds = List[type(ElementId())]()
-    List_ElementsIds = List[ElementId]()
-    for element in elementsInView:
-        List_ElementsIds.Add(element.Id)
-
-    selection = uidoc.Selection.SetElementIds(List_ElementsIds)
-    print (List_ElementsIds)
-
-    # List_viewtemplates = List[type(ListItem())]()
-    #
-    # for name in sorted(dict_view_templates):
-    #     item = ListItem(name, dict_view_templates[name], False)
-    #     List_viewtemplates.Add(item)
-
-
-
-
-
-
-
-
-
-
-    # for element in elementsInView:
-    #     parameter = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM)
-    #     print parameter.AsValueString()
-    #     parameter.UserModifiable.(True)
-
-
-# Autodesk.Revit.UI.Selection.Selection.PickObjects()
-# Autodesk.Revit.UI.Selection.Selection.SetElementIds()
-# https://www.revitapidocs.com/2015/a2847bd6-bcac-9233-584f-77ca54c4a800.htm
-
-# https://teocomi.com/dynamo-select-revit-element-by-id/
-
-
-
-# Autodesk.Revit.DB.Parameter.UserModifiable
-
-
-
-
-
-
-    # test= GetInstanceScheduleElementLevel.as_string(elements=elements)
-
-
-    #
-    # for e in elements:
-    #     params = e.GetParameters("Niveau de nomenclature")
-    #     print params
-    #     print params[0].AsValueString()
-    #     # element = e.GetParameters("Niveau de nomenclature")
-    #     # print (element)
-
-    # Autodesk.Revit.DB.Element.GetParameters("Niveau de nomenclature")
-
-
-
-
-    # print ("go")
-    # selected = FilteredElementCollector(doc) \
-    #     .OfCategory(BuiltInCategory.OST_ElectricalFixtures) \
-    #     .WhereElementIsNotElementType() \
-    #     .ToElements()
-    #
-    # hosted = [select.Host for select in selected]
-    #
-    #
-    #
-    #
-    # print ("hosted")
-    # for h in hosted:
-    #     print (h, " / ", h)
-
+    currentLevel = FER_View.GetCurrentLevel(document=doc)
+    List_ElementsIds = FER_Selection.Select_elements_in_active_view_by_element(elementsInView)
+    uidoc.Selection.SetElementIds(List_ElementsIds)

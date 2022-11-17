@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 
-def GetActiveView(doc):
-    return doc.ActiveView
+def GetActiveView(document):
+    return document.ActiveView
 
-def GetCurrentLevel(doc):
-    return doc.ActiveView.GenLevel
+def GetCurrentLevel(document):
+    return document.ActiveView.GenLevel
