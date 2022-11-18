@@ -4,7 +4,7 @@ from collections import Iterable
 
 import clr
 clr.AddReference("System")
-from System.Collections.Generic import List,GUID
+from System.Collections.Generic import List
 
 from Autodesk.Revit.DB import SharedParameterElement,\
                                 ParameterElement,\
