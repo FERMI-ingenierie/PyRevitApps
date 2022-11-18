@@ -52,7 +52,7 @@ app = __revit__.Application
 
 if __name__ == '__main__':
     selection = SelectMEP_All_ElectricalElements(document=doc)
-    elements = selection.all_elementsIds_MEP_electrical
+    elements = selection.all_elements_MEP_electrical
     print elements
 
 
