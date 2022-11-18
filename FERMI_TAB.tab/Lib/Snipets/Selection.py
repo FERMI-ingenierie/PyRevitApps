@@ -26,9 +26,12 @@ class SelectMEP_All_ElectricalElements:
                                 .OfClass(ElectricalSystem)\
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
+        print all_electrical
         for element in all_electrical:
             self.List_Elements.Add(element)
             self.List_ElementsId.Add(element.Id)
+            print element
+            print element.Id
 
     @property
     def all_elements_MEP_electrical(self):
