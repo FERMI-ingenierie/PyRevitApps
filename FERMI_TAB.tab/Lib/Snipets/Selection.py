@@ -110,14 +110,14 @@ class SelectMEP_All_ElectricalElements:
         types = cls.get_unique_types(elements)
 
         for typ in types:
-            typ.Symbol.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS).AsValueString()
+            # typ.Symbol.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS).AsValueString()
+            print typ
+
 
 
 
 
         ids = cls.get_types_ids(types)
-
-
         print ('-' * 100)
         for id in ids:
             print id
