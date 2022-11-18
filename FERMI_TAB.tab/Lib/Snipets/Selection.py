@@ -34,8 +34,8 @@ class SelectMEP_All_ElectricalElements:
         for element in all_electrical:
             self.List_Elements.Add(element)
             self.List_ElementsId.Add(element.Id)
-            print element
-            print element.Id
+            print element.Name
+            # print element.Id
 
     @property
     def all_elements_MEP_electrical(self):
