@@ -68,7 +68,7 @@ class SelectMEP_All_ElectricalElements:
 
 
 def get_schedulable_elements(elements):
-    typeId = [element.Symbol() for element in elements]
+    typeId = [element.Symbol for element in elements]
     print typeId
     print (len(typeId))
 
