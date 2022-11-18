@@ -64,7 +64,7 @@ class SelectMEP_All_ElectricalElements:
     @staticmethod
     def get_unique_types(elements):
         """
-        return all type Ids for MEP electrical elements as unique
+        return all type Symbols for MEP electrical elements as unique
 
         :param elements: Elements instance as iterable
         :type elements: Iterable
@@ -84,18 +84,40 @@ class SelectMEP_All_ElectricalElements:
 
         return List_types
 
+    @staticmethod
+    def get_types_ids(symbols):
+        """
+        return all type Ids for MEP electrical elements
+
+        :param symbols: Symbols elements as iterable
+        :type symbols: Iterable
+        :return: List[Symbols]
+        :rtype: List
+        """
+        List_Ids = List[Element]()
+        symbols = [symbols] if not isinstance(symbols, Iterable) else symbols
+
+        for symbol in symbols:
+            List_Ids.Add(symbol.Id)
+
+        return List_Ids
+
+
+
 
     @classmethod
     def schedulable(cls, elements):
         types = cls.get_unique_types(elements)
+        ids = cls.get_types_ids(types)
 
-
+        for id in ids:
+            print id
 
 
         # typeId = [element.Symbol for element in elements]
-        for type in types:
-            shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
-            print shared.AsValueString()
+        # for type in types:
+        #     shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
+        #     print shared.AsValueString()
 
 
 
