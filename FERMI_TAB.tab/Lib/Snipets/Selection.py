@@ -64,7 +64,7 @@ def get_parameter_value_by_name(elements, parameterName):
 
 def get_schedulable_elements(elements):
     for element in elements:
-        print (element.get_Parameter(SharedParameterElement('SP_FER_SCH_Schedulable')).ToString())
+        print (element.get_Parameter.LookupParameter('SP_FER_SCH_Schedulable').AsValueString())
 
 
 
