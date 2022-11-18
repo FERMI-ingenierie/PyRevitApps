@@ -23,7 +23,7 @@ class SelectMEP_All_ElectricalElements:
 
     def __init__(self, document):
         # provider = ParameterValueProvider(ElementId(int)SharedParameterElement("SP_FER_"))
-        self.filter = ElementParameterFilter()
+        # self.filter = ElementParameterFilter()
         self.List_Elements = List[Element]()
         self.List_ElementsId = List[ElementId]()
         all_electrical = FilteredElementCollector(document)\
