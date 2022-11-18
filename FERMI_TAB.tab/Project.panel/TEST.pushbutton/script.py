@@ -54,6 +54,6 @@ if __name__ == '__main__':
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.all_elements_MEP_electrical
     for e in elements:
-        print e.ToString
+        print e.ToString()
 
 
