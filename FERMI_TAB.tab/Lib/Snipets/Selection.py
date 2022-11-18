@@ -71,7 +71,7 @@ def get_schedulable_elements(elements):
     typeId = [element.Symbol for element in elements]
     for type in typeId:
         shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
-        print shared
+        print shared.ToString
 
         # print Type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
 
