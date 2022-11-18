@@ -84,14 +84,8 @@ class SelectMEP_All_ElectricalElements:
     @classmethod
     def schedulable(cls, elements):
         types = cls.get_types(elements)
-
-
-
-
-        # typeId = [element.Symbol for element in elements]
-        for type in types:
-            shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
-            print shared.AsValueString()
+        shared ={typ.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS).AsValueString() for typ in types}
+        print shared
 
 
 
