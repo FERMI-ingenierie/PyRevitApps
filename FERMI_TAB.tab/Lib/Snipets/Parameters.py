@@ -8,6 +8,23 @@ import clr
 clr.AddReference("System")
 from System.Collections.Generic import List
 
+# FAMILY_WPB_DEFAULT_ELEVATION => Elévation par défaut
+# INSTANCE_ELEVATION_PARAM => Élévation par rapport au niveau
+# INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM => Niveau de nomenclature
+# ELEM_TYPE_PARAM => Type
+# ELEM_FAMILY_PARAM => Famille
+
+# PHASE_DEMOLISHED => Phase de démolition
+# PHASE_CREATED => Phase de création
+# ELEM_ROOM_NAME => Nom de la pièce
+# ELEM_ROOM_NUMBER => Numéro de la pièce
+# ALL_MODEL_TYPE_NAME => Nom du type
+# ALL_MODEL_FAMILY_NAME => Nom de la famille
+
+
+
+
+
 
 # class GetInstanceScheduleElementLevel:
 #     _parameter = "Niveau de nomenclature"

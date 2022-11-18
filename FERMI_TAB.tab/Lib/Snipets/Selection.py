@@ -12,7 +12,11 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 Element,\
                                 ElementId,\
                                 BuiltInCategory,\
-                                ElementParameterFilter,ParameterValueProvider,BuiltInParameter, ElementMulticategoryFilter, ElementFilter
+                                ElementParameterFilter,\
+                                ParameterValueProvider,\
+                                BuiltInParameter,\
+                                ElementMulticategoryFilter,\
+                                ElementFilter
 
 from Snipets.Filters import all_MEP_electrical
 
@@ -55,16 +59,16 @@ class SelectMEP_All_ElectricalElements:
 
 
 
-def get_parameter_value_by_name(elements, parameterName):
-    if isinstance(elements, Iterable):
-        for element in elements:
-            print element.LookupParameter(parameterName).AsValueString()
+# def get_parameter_value_by_name(elements, parameterName):
+#     if isinstance(elements, Iterable):
+#         for element in elements:
+#             print element.LookupParameter(parameterName).AsValueString()
 
 
 
 def get_schedulable_elements(elements):
     for element in elements:
-        print (element.GetParameters('SP_FER_SCH_Schedulable').AsValueString())
+        print (element.GetParameters('SP_FER_SCH_Schedulable').AsInteger())
 
 
 
