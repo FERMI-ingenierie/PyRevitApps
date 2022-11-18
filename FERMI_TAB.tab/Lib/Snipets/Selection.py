@@ -71,15 +71,27 @@ class SelectMEP_All_ElectricalElements:
         """
         List_types = List[FamilySymbol]()
 
-        elements = [elements] if not isinstance(elements, Iterable) else elements
-        return  [List_types.Add(element.Symbol)for element in elements]
+        if isinstance(elements, Iterable):
+            types =  {element.Symbol for element in elements}
+            for typ in types :
+                List_types.Add(typ)
+        else:
+            List_types.Add(elements)
+
+        return List_types
 
 
     @classmethod
     def schedulable(cls, elements):
         types = cls.get_types(elements)
-        shared = {typ.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS).AsValueString() for typ in types}
-        print shared
+
+
+
+
+        # typeId = [element.Symbol for element in elements]
+        for type in types:
+            shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
+            print shared.AsValueString()
 
 
 
