@@ -4,7 +4,7 @@ from collections import Iterable
 
 import clr
 clr.AddReference("System")
-from System.Collections.Generic import List
+from System.Collections.Generic import List,GUID
 
 from Autodesk.Revit.DB import SharedParameterElement,\
                                 ParameterElement,\
@@ -52,6 +52,15 @@ class SelectMEP_All_ElectricalElements:
             self.List_ElementsId.Add(element.Id)
 
         return self.List_ElementsId
+
+
+
+def get_parameter_value_by_name(elements, parameterName):
+    if isinstance(elements, Iterable):
+        for element in elements:
+            print element.LookupParameter(parameterName).AsValueString()
+
+
 
 def get_schedulable_elements(elements):
     for element in elements:
