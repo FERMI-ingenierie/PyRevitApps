@@ -28,15 +28,26 @@ class SelectMEP_All_ElectricalElements:
     def __init__(self, document):
         self.List_Elements = FilteredElementCollector(document)\
                                 .WherePasses(self.filter)\
-                                .WhereElementIsNotElementType()\
+                                .WhereElementIsElementType()\
                                 .ToElements()
     @property
     def all_elements_MEP_electrical(self):
+        """
+        return all element MEP electrical define by filter
+
+        :return: Elements
+        :rtype: List
+        """
         return self.List_Elements
 
     @property
     def all_elementsIds_MEP_electrical(self):
+        """
+        return all element Ids MEP electrical define by filter
 
+        :return: Elements
+        :rtype: List
+        """
         for element in self.List_Elements:
             self.List_ElementsId.Add(element.Id)
 
