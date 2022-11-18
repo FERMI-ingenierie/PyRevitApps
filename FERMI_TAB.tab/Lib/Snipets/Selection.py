@@ -17,7 +17,7 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 ParameterValueProvider,\
                                 BuiltInParameter,\
                                 ElementMulticategoryFilter,\
-                                ElementFilter
+                                ElementFilter,FamilySymbol
 
 from Snipets.Filters import all_MEP_electrical
 
@@ -68,7 +68,7 @@ class SelectMEP_All_ElectricalElements:
 
 
 def get_schedulable_elements(elements):
-    typeId = [element.familySymbol() for element in elements]
+    typeId = [element.Symbole() for element in elements]
     print typeId
     print (len(typeId))
 
