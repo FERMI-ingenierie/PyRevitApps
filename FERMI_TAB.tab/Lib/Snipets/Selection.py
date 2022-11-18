@@ -22,8 +22,6 @@ from Autodesk.Revit.DB import *
 
 from Snipets.Filters import all_MEP_electrical
 
-from pyrevit import *
-
 
 
 uidoc = __revit__.ActiveUIDocument

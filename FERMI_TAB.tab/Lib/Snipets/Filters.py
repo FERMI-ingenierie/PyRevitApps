@@ -20,7 +20,7 @@ def all_MEP_electrical():
 
     Listcategories = List[BuiltInCategory]()
 
-    categories = [BuiltInCategory.OST_ElectricalFixtures,
+    categories = {BuiltInCategory.OST_ElectricalFixtures,
                   BuiltInCategory.OST_ElectricalEquipment,
                   BuiltInCategory.OST_LightingFixtures,
                   BuiltInCategory.OST_LightingDevices,
@@ -28,9 +28,6 @@ def all_MEP_electrical():
                   BuiltInCategory.OST_FireAlarmDevices,
                   BuiltInCategory.OST_SecurityDevices,
                   BuiltInCategory.OST_CommunicationDevices,
-                  BuiltInCategory.OST_Site]
+                  BuiltInCategory.OST_Site}
 
-    for category in categories:
-        Listcategories.Add(category)
-
-    return ElementMulticategoryFilter(Listcategories)
+    return ElementMulticategoryFilter(Listcategories.Add(category) for category in categories)
