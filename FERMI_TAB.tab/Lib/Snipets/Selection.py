@@ -23,7 +23,7 @@ class SelectMEP_All_ElectricalElements:
 
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()
-    filter = all_MEP_electrical()
+    filter = all_MEP_electrical
 
     def __init__(self, document):
         all_electrical = FilteredElementCollector(document)\

@@ -16,6 +16,7 @@ doc = __revit__.ActiveUIDocument.Document
 
 
 
+@property
 def all_MEP_electrical():
 
     Listcategories = List[BuiltInCategory]()
