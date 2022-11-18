@@ -59,5 +59,5 @@ if __name__ == '__main__':
 
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.all_elements_MEP_electrical
-    SelectMEP_All_ElectricalElements.schedulable(elements)
+    schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
 

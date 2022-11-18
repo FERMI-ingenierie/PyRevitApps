@@ -56,7 +56,7 @@ from Autodesk.Revit.DB import Transaction, FilteredElementCollector
 
 from pyrevit import revit, forms
 
-from Lib.Snipets.Selection import get_selected_elements
+from Libs.Snipets.Selection import get_selected_elements
 
 import clr                                  # Common Language Runtime. Makes .NET libraries accessinble
 clr.AddReference("System")                  # Refference System.dll for import.
