@@ -27,7 +27,7 @@ class SelectMEP_All_ElectricalElements:
         self.List_Elements = List[Element]()
         self.List_ElementsId = List[ElementId]()
         all_electrical = FilteredElementCollector(document)\
-                                .OfClass(BuiltInCategory.OST_ElectricalFixtures)\
+                                .OfCategory(BuiltInCategory.OST_ElectricalFixtures)\
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
         print all_electrical
