@@ -12,12 +12,14 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 Element,\
                                 ElementId,\
                                 BuiltInCategory,\
-                                ElementParameterFilter,ParameterValueProvider,BuiltInParameter, ElementMulticategoryFilter
+                                ElementParameterFilter,ParameterValueProvider,BuiltInParameter, ElementMulticategoryFilter, ElementFilter
 
 from Autodesk.Revit.DB.Electrical import *
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
+
+list_of_filters = List[ElementFilter]()
 
 
 class SelectMEP_All_ElectricalElements:
@@ -32,18 +34,18 @@ class SelectMEP_All_ElectricalElements:
     def __init__(self, document):
         for category in self.categories:
             self.Listcategories.Add(category)
-    
 
-
-        all_electrical = FilteredElementCollector(document)\
-                                .OfCategory(BuiltInCategory.OST_ElectricalFixtures)\
-                                .WhereElementIsNotElementType()\
-                                .ToElements()
-        print all_electrical
-        for element in all_electrical:
-            self.List_Elements.Add(element)
-            self.List_ElementsId.Add(element.Id)
-            print element.Name
+        #
+        #
+        # all_electrical = FilteredElementCollector(document)\
+        #                         .OfCategory(BuiltInCategory.OST_ElectricalFixtures)\
+        #                         .WhereElementIsNotElementType()\
+        #                         .ToElements()
+        # print all_electrical
+        # for element in all_electrical:
+        #     self.List_Elements.Add(element)
+        #     self.List_ElementsId.Add(element.Id)
+        #     print element.Name
             # print element.Id
 
     @property
