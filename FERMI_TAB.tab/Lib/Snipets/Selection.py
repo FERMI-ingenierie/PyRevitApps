@@ -67,6 +67,7 @@ class SelectMEP_All_ElectricalElements:
 
 
 def get_schedulable_elements(elements):
+    print elements
     for element in elements:
         print (element.GetParameters('SP_FER_SCH_Schedulable').AsInteger())
 
