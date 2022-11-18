@@ -69,7 +69,7 @@ class SelectMEP_All_ElectricalElements:
         :return: Symbol(s)
         :rtype: List
         """
-        List_types = List[ElementId]()
+        List_types = List[FamilySymbol]()
 
         if isinstance(elements, Iterable):
             types =  (element.Symbol for element in elements)
