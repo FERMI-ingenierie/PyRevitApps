@@ -62,7 +62,7 @@ class SelectMEP_All_ElectricalElements:
     @staticmethod
     def get_types(elements):
         """
-        return all type Ids for MEP electrical elements
+        return all type Ids for MEP electrical elements as unique
 
         :param elements: Elements as iterable
         :type elements: Iterable
@@ -72,7 +72,7 @@ class SelectMEP_All_ElectricalElements:
         List_types = List[FamilySymbol]()
 
         if isinstance(elements, Iterable):
-            types =  (element.Symbol for element in elements)
+            types =  {element.Symbol for element in elements}
             for typ in types :
                 List_types.Add(typ)
         else:
