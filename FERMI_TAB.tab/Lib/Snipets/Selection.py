@@ -69,7 +69,7 @@ class SelectMEP_All_ElectricalElements:
 def get_schedulable_elements(elements):
     print elements
     for element in elements:
-        Type = element.GetTypeId
+        Type = element.GetTypeId()
         print Type
         print Type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
 
