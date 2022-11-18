@@ -71,14 +71,8 @@ class SelectMEP_All_ElectricalElements:
         """
         List_types = List[FamilySymbol]()
 
-        if isinstance(elements, Iterable):
-            types =  {element.Symbol for element in elements}
-            for typ in types :
-                List_types.Add(typ)
-        else:
-            List_types.Add(elements)
-
-        return List_types
+        elements = [elements] if not isinstance(elements, Iterable) else elements
+        return  [List_types.Add(element.Symbol)for element in elements]
 
 
     @classmethod
