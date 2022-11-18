@@ -10,7 +10,9 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 ParameterElement,\
                                 FilteredElementCollector,\
                                 Element,\
-                                ElementId,BuiltInCategory
+                                ElementId,\
+                                BuiltInCategory,\
+                                ElementParameterFilter,ParameterValueProvider,BuiltInParameter
 from Autodesk.Revit.DB.Electrical import *
 
 uidoc = __revit__.ActiveUIDocument
@@ -20,6 +22,8 @@ doc = uidoc.Document
 class SelectMEP_All_ElectricalElements:
 
     def __init__(self, document):
+        # provider = ParameterValueProvider(ElementId(int)SharedParameterElement("SP_FER_"))
+        self.filter = ElementParameterFilter()
         self.List_Elements = List[Element]()
         self.List_ElementsId = List[ElementId]()
         all_electrical = FilteredElementCollector(document)\
