@@ -68,22 +68,22 @@ class SelectMEP_All_ElectricalElements:
         :rtype: List
         """
 
-        ids =  (element.Symbol for element in elements)
-        List_Id = List[ElementId]()
-        for id in ids :
-            List_Id.Add(id)
+        types =  (element.Symbol for element in elements)
+        List_types = List[ElementId]()
+        for type in types :
+            List_types.Add(type)
 
-        return List_Id
+        return List_types
 
     @classmethod
     def schedulable(cls, elements):
-        Ids = cls.get_type_ids(elements)
+        types = cls.get_type_ids(elements)
 
 
-        
+
 
         # typeId = [element.Symbol for element in elements]
-        for type in Ids:
+        for type in types:
             shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
             print shared.AsValueString()
 
