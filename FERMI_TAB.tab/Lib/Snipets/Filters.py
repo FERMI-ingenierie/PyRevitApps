@@ -30,4 +30,4 @@ def all_MEP_electrical():
                   BuiltInCategory.OST_CommunicationDevices,
                   BuiltInCategory.OST_Site}
 
-    return ElementMulticategoryFilter(Listcategories.Add(category) for category in categories)
+    return ElementMulticategoryFilter([Listcategories.Add(category) for category in categories])
