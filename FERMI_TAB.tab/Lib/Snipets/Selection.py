@@ -94,7 +94,7 @@ class SelectMEP_All_ElectricalElements:
         :return: List[Symbols]
         :rtype: List
         """
-        List_Ids = List[Element]()
+        List_Ids = List[ElementId]()
         symbols = [symbols] if not isinstance(symbols, Iterable) else symbols
 
         for symbol in symbols:
