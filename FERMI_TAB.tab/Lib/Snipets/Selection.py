@@ -28,7 +28,7 @@ class SelectMEP_All_ElectricalElements:
     def __init__(self, document):
         self.List_Elements = FilteredElementCollector(document)\
                                 .WherePasses(self.filter)\
-                                .WhereElementIsElementType()\
+                                .WhereElementIsNotElementType()\
                                 .ToElements()
     @property
     def all_elements_MEP_electrical(self):
