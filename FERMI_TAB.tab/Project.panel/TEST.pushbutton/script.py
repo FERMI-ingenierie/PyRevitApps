@@ -33,7 +33,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 Element,ElementFilter
 
 
-from Snipets.Selection import SelectMEP_All_ElectricalElements
+from Snipets.Selection import SelectMEP_All_ElectricalElements, get_schedulable_elements
 from Snipets.Views import GetActiveView, GetCurrentLevel
 
 
@@ -53,7 +53,7 @@ app = __revit__.Application
 if __name__ == '__main__':
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.all_elements_MEP_electrical
-    for e in elements:
-        print e.Name
-
+    # for e in elements:
+    #     print e.Name
+    get_schedulable_elements(elements)
 

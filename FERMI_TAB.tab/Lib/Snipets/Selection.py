@@ -53,6 +53,15 @@ class SelectMEP_All_ElectricalElements:
 
         return self.List_ElementsId
 
+def get_schedulable_elements(elements):
+    for element in elements:
+        print (element.GetParameters('SP_FER_SCH_Schedulable'))
+
+
+
+
+
+
     #
     # @property
     # def get_MEP_class(self):
