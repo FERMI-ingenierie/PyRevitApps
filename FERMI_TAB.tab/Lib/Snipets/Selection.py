@@ -41,23 +41,21 @@ class SelectMEP_All_ElectricalElements:
     for category in categories:
         Listcategories.Add(category)
 
+    filter = ElementMulticategoryFilter(Listcategories)
+
 
 
     def __init__(self, document):
-        filter = ElementMulticategoryFilter(self.Listcategories)
-
-        #
-        #
-        # all_electrical = FilteredElementCollector(document)\
-        #                         .OfCategory(BuiltInCategory.OST_ElectricalFixtures)\
-        #                         .WhereElementIsNotElementType()\
-        #                         .ToElements()
-        # print all_electrical
-        # for element in all_electrical:
-        #     self.List_Elements.Add(element)
-        #     self.List_ElementsId.Add(element.Id)
-        #     print element.Name
-            # print element.Id
+        all_electrical = FilteredElementCollector(document)\
+                                .WherePasses(self.filter)\
+                                .WhereElementIsNotElementType()\
+                                .ToElements()
+        print all_electrical
+        for element in all_electrical:
+            self.List_Elements.Add(element)
+            self.List_ElementsId.Add(element.Id)
+            print element.Name
+            print element.Id
 
     @property
     def all_elements_MEP_electrical(self):
