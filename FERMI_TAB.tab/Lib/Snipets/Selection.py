@@ -11,6 +11,7 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 FilteredElementCollector,\
                                 Element,\
                                 ElementId,\
+                                ElementType,\
                                 BuiltInCategory,\
                                 ElementParameterFilter,\
                                 ParameterValueProvider,\
@@ -68,11 +69,10 @@ class SelectMEP_All_ElectricalElements:
 
 def get_schedulable_elements(elements):
     print elements
-    typeId = List[Element]()
 
-    for element in elements:
-        typeId.Add(element.GetTypeId())
-        print typeId
+    typeId = [element.GetTypeId() for element in elements]
+    print typeId
+
         # print Type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
 
 
