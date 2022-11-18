@@ -29,7 +29,17 @@ class SelectMEP_All_ElectricalElements:
     List_ElementsId = List[ElementId]()
 
     categories = (BuiltInCategory.OST_ElectricalFixtures,
-                  BuiltInCategory.OST_LightingFixtures)
+                  BuiltInCategory.OST_ElectricalEquipment,
+                  BuiltInCategory.OST_LightingFixtures,
+                  BuiltInCategory.OST_LightingDevices,
+                  BuiltInCategory.OST_DataDevices,
+                  BuiltInCategory.OST_FireAlarmDevices,
+                  BuiltInCategory.OST_SecurityDevices,
+                  BuiltInCategory.OST_CommunicationDevices,
+                  BuiltInCategory.OST_Site)
+
+    filter = ElementMulticategoryFilter(categories)
+
 
     def __init__(self, document):
         for category in self.categories:
