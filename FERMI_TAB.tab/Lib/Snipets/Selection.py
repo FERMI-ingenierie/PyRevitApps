@@ -62,11 +62,11 @@ class SelectMEP_All_ElectricalElements:
         return self.List_ElementsId
 
     @staticmethod
-    def get_types(elements):
+    def get_unique_types(elements):
         """
         return all type Ids for MEP electrical elements as unique
 
-        :param elements: Elements as iterable
+        :param elements: Elements instance as iterable
         :type elements: Iterable
         :return: Symbol(s)
         :rtype: List
@@ -75,24 +75,19 @@ class SelectMEP_All_ElectricalElements:
 
         elements = [elements] if not isinstance(elements, Iterable) else elements
         types = ElementSet()
-        # types = {element for element in elements}
 
         for element in elements:
             types.Insert(element.Symbol)
 
+        for typ in types:
+            List_types.Add(typ)
 
-                    # types =  [List_types.Add(element.Symbol) for element in elements]
-            # for typ in types :
-            #     List_types.Add(typ)
-        # else:
-        #     List_types.Add(elements)
-
-        return types
+        return List_types
 
 
     @classmethod
     def schedulable(cls, elements):
-        types = cls.get_types(elements)
+        types = cls.get_unique_types(elements)
 
 
 
