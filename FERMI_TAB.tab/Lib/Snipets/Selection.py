@@ -11,9 +11,48 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 FilteredElementCollector,\
                                 Element,\
                                 ElementId
+from Autodesk.Revit.DB.Electrical import *
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
+
+
+class SelectMEP_All_ElectricalElements:
+
+    def __init__(self, document):
+        self.List_ElementsIds = List[ElementId]()
+        all_electrical = FilteredElementCollector(document)\
+                                .OfClass(ElectricalSystem)\
+                                .WhereElementIsNotElementType()\
+                                .ToElements()
+        for element in all_electrical:
+            self.List_ElementsIds.Add(element)
+
+    @property
+    def all_elements_MEP_electrical(self):
+        return self.List_ElementsIds
+
+    @property
+    def get_MEP_class(self):
+        return None
+
+    @property
+    def get_MEP_subclass(self):
+        return None
+
+    @property
+    def get_MEP_schedulable(self):
+        return None
+
+    @property
+    def filename(self):
+        return None
+
+    @property
+    def geturl(self):
+        return None
+
+
 
 class SelectElementsInView:
     List_ElementsIds = List[ElementId]()
