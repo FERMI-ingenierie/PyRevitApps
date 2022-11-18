@@ -40,26 +40,26 @@ class SelectMEP_All_ElectricalElements:
     @property
     def all_elements_MEP_electricalIds(self):
         return self.List_ElementsId
-
-    @property
-    def get_MEP_class(self):
-        return None
-
-    @property
-    def get_MEP_subclass(self):
-        return None
-
-    @property
-    def get_MEP_schedulable(self):
-        return None
-
-    @property
-    def filename(self):
-        return None
-
-    @property
-    def geturl(self):
-        return None
+    #
+    # @property
+    # def get_MEP_class(self):
+    #     return None
+    #
+    # @property
+    # def get_MEP_subclass(self):
+    #     return None
+    #
+    # @property
+    # def get_MEP_schedulable(self):
+    #     return None
+    #
+    # @property
+    # def filename(self):
+    #     return None
+    #
+    # @property
+    # def geturl(self):
+    #     return None
 
 
 
