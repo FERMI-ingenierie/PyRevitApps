@@ -60,7 +60,7 @@ class SelectMEP_All_ElectricalElements:
         return self.List_ElementsId
 
     @staticmethod
-    def get_type_ids(elements):
+    def get_types(elements):
         """
         return all type Ids for MEP electrical elements
 
@@ -73,16 +73,17 @@ class SelectMEP_All_ElectricalElements:
 
         if isinstance(elements, Iterable):
             types =  (element.Symbol for element in elements)
-            for type in types :
-                List_types.Add(type)
+            for typ in types :
+                List_types.Add(typ)
         else:
             List_types.Add(elements)
 
         return List_types
 
+
     @classmethod
     def schedulable(cls, elements):
-        types = cls.get_type_ids(elements)
+        types = cls.get_types(elements)
 
 
 
