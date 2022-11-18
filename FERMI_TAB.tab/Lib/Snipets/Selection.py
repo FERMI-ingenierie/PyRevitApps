@@ -6,18 +6,19 @@ import clr
 clr.AddReference("System")
 from System.Collections.Generic import List
 
-from Autodesk.Revit.DB import SharedParameterElement,\
-                                ParameterElement,\
-                                FilteredElementCollector,\
-                                Element,\
-                                ElementId,\
-                                ElementType,\
-                                BuiltInCategory,\
-                                ElementParameterFilter,\
-                                ParameterValueProvider,\
-                                BuiltInParameter,\
-                                ElementMulticategoryFilter,\
-                                ElementFilter,FamilySymbol
+from Autodesk.Revit.DB import *
+# from Autodesk.Revit.DB import SharedParameterElement,\
+#                                 ParameterElement,\
+#                                 FilteredElementCollector,\
+#                                 Element,\
+#                                 ElementId,\
+#                                 ElementType,\
+#                                 BuiltInCategory,\
+#                                 ElementParameterFilter,\
+#                                 ParameterValueProvider,\
+#                                 BuiltInParameter,\
+#                                 ElementMulticategoryFilter,\
+#                                 ElementFilter,FamilySymbol
 
 from Snipets.Filters import all_MEP_electrical
 
@@ -58,6 +59,37 @@ class SelectMEP_All_ElectricalElements:
 
         return self.List_ElementsId
 
+    @staticmethod
+    def get_type_ids(elements):
+        """
+        return all type Ids for MEP electrical elements
+
+        :return: Elements.Id
+        :rtype: List
+        """
+
+        ids =  (element.Symbol for element in elements)
+        List_Id = List[ElementId]()
+        for id in ids :
+            List_Id.Add(id)
+
+        return List_Id
+
+    @classmethod
+    def schedulable(cls, elements):
+        Ids = cls.get_type_ids(elements)
+
+
+        
+
+        # typeId = [element.Symbol for element in elements]
+        for type in Ids:
+            shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
+            print shared.AsValueString()
+
+
+
+
 
 
 # def get_parameter_value_by_name(elements, parameterName):
@@ -67,11 +99,6 @@ class SelectMEP_All_ElectricalElements:
 
 
 
-def get_schedulable_elements(elements):
-    typeId = [element.Symbol for element in elements]
-    for type in typeId:
-        shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
-        print shared.AsValueString()
 
         # print Type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
 
