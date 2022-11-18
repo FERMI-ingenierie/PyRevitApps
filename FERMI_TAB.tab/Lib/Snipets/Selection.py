@@ -20,17 +20,23 @@ doc = uidoc.Document
 class SelectMEP_All_ElectricalElements:
 
     def __init__(self, document):
-        self.List_ElementsIds = List[ElementId]()
+        self.List_Elements = List[Element]()
+        self.List_ElementsId = List[ElementId]()
         all_electrical = FilteredElementCollector(document)\
                                 .OfClass(ElectricalSystem)\
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
         for element in all_electrical:
-            self.List_ElementsIds.Add(element)
+            self.List_Elements.Add(element)
+            self.List_ElementsId.Add(element.Id)
 
     @property
     def all_elements_MEP_electrical(self):
-        return self.List_ElementsIds
+        return self.List_Elements
+
+    @property
+    def all_elements_MEP_electricalIds(self):
+        return self.List_ElementsId
 
     @property
     def get_MEP_class(self):
