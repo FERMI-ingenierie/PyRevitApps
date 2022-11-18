@@ -75,7 +75,7 @@ class SelectMEP_All_ElectricalElements:
         types = {element for element in elements}
 
         for typ in types:
-            List_types.add(typ.Symbol)
+            List_types.Add(typ.Symbol)
 
 
                     # types =  [List_types.Add(element.Symbol) for element in elements]
