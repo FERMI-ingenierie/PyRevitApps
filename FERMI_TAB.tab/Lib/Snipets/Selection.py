@@ -36,8 +36,10 @@ class SelectMEP_All_ElectricalElements:
 
     @property
     def all_elementsIds_MEP_electrical(self):
-        # return self.List_Elements
-        return self.List_Elements.ForEach(Element.Id)
+        for element in self.List_Elements:
+            self.List_ElementsId.Add(element)
+
+        return self.List_ElementsId
 
     #
     # @property
