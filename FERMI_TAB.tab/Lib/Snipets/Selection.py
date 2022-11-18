@@ -39,13 +39,12 @@ class SelectMEP_All_ElectricalElements:
                   BuiltInCategory.OST_Site]
 
     for category in categories:
-        filter = ElementMulticategoryFilter(categories)
+        Listcategories.Add(category)
 
 
 
     def __init__(self, document):
-        for category in self.categories:
-            self.Listcategories.Add(category)
+        filter = ElementMulticategoryFilter(self.Listcategories)
 
         #
         #
