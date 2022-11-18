@@ -55,7 +55,7 @@ class SelectMEP_All_ElectricalElements:
 
 def get_schedulable_elements(elements):
     for element in elements:
-        print (element.GetParameters('SP_FER_SCH_Schedulable').ToString())
+        print (element.get_Parameter('SP_FER_SCH_Schedulable').ToString())
 
 
 
