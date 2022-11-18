@@ -30,7 +30,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInCategory,\
                                 ElementId,\
                                 BuiltInParameter,\
-                                Element,ElementFilter,
+                                Element,ElementFilter
 from Snipets.Selection import SelectElementsInView
 from Snipets.Views import GetActiveView, GetCurrentLevel
 # from pyrevit import revit, forms
