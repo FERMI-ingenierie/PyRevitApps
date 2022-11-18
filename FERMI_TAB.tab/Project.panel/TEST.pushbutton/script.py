@@ -54,5 +54,4 @@ if __name__ == '__main__':
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.List_Elements
 
-    print (elements)
 

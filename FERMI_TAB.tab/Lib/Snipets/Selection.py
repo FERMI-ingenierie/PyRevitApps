@@ -14,37 +14,17 @@ from Autodesk.Revit.DB import SharedParameterElement,\
                                 BuiltInCategory,\
                                 ElementParameterFilter,ParameterValueProvider,BuiltInParameter, ElementMulticategoryFilter, ElementFilter
 
-from Autodesk.Revit.DB.Electrical import *
+from Snipets.Filters import all_MEP_electrical
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
 
-list_of_filters = List[ElementFilter]()
-
-
 class SelectMEP_All_ElectricalElements:
 
-    Listcategories = List[BuiltInCategory]()
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()
-
-    categories = [BuiltInCategory.OST_ElectricalFixtures,
-                  BuiltInCategory.OST_ElectricalEquipment,
-                  BuiltInCategory.OST_LightingFixtures,
-                  BuiltInCategory.OST_LightingDevices,
-                  BuiltInCategory.OST_DataDevices,
-                  BuiltInCategory.OST_FireAlarmDevices,
-                  BuiltInCategory.OST_SecurityDevices,
-                  BuiltInCategory.OST_CommunicationDevices,
-                  BuiltInCategory.OST_Site]
-
-    for category in categories:
-        Listcategories.Add(category)
-
-    filter = ElementMulticategoryFilter(Listcategories)
-
-
-
+    filter = all_MEP_electrical
+    
     def __init__(self, document):
         all_electrical = FilteredElementCollector(document)\
                                 .WherePasses(self.filter)\
