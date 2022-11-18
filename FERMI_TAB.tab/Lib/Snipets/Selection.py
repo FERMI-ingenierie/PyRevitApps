@@ -18,9 +18,13 @@ from Autodesk.Revit.DB import *
 #                                 ParameterValueProvider,\
 #                                 BuiltInParameter,\
 #                                 ElementMulticategoryFilter,\
-#                                 ElementFilter,FamilySymbol
+#                                 ElementFilter,FamilySymbol, ElementSet
 
 from Snipets.Filters import all_MEP_electrical
+
+from pyrevit import *
+
+
 
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
@@ -72,10 +76,11 @@ class SelectMEP_All_ElectricalElements:
         List_types = List[FamilySymbol]()
 
         elements = [elements] if not isinstance(elements, Iterable) else elements
-        types = {element for element in elements}
+        types = ElementSet()
+        # types = {element for element in elements}
 
-        for typ in types:
-            List_types.Add(typ.Symbol)
+        for element in elements:
+            types.Insert(element.Symbol)
 
 
                     # types =  [List_types.Add(element.Symbol) for element in elements]
@@ -84,7 +89,7 @@ class SelectMEP_All_ElectricalElements:
         # else:
         #     List_types.Add(elements)
 
-        return List_types
+        return types
 
 
     @classmethod
