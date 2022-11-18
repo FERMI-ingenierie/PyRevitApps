@@ -69,8 +69,9 @@ class SelectMEP_All_ElectricalElements:
 
 def get_schedulable_elements(elements):
     typeId = [element.Symbol for element in elements]
-    print typeId
-    print (len(typeId))
+    for type in typeId:
+        shared = type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
+        print shared
 
         # print Type.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_COMMENTS)
 
