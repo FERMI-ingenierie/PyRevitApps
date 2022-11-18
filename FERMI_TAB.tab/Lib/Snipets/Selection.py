@@ -22,12 +22,11 @@ doc = uidoc.Document
 class SelectMEP_All_ElectricalElements:
 
     def __init__(self, document):
-        categories = ElementMulticategoryFilter(BuiltInCategory.OST_ElectricalFixtures,
-                                                BuiltInCategory.OST_ElectricalEquipment,
-                                                BuiltInCategory.OST_Site)
+        categories = List(BuiltInCategory(), BuiltInCategory.OST_ElectricalFixtures,
+                                             BuiltInCategory.OST_ElectricalEquipment,
+                                             BuiltInCategory.OST_LightingFixtures,
+                                             BuiltInCategory.OST_Site)
 
-        # provider = ParameterValueProvider(ElementId(int)SharedParameterElement("SP_FER_"))
-        # self.filter = ElementParameterFilter()
         self.List_Elements = List[Element]()
         self.List_ElementsId = List[ElementId]()
         all_electrical = FilteredElementCollector(document)\
