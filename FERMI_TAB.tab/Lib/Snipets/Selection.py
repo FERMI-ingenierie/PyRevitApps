@@ -64,14 +64,19 @@ class SelectMEP_All_ElectricalElements:
         """
         return all type Ids for MEP electrical elements
 
-        :return: Elements.Id
+        :param elements: Elements as iterable
+        :type elements: Iterable
+        :return: Symbol(s)
         :rtype: List
         """
-
-        types =  (element.Symbol for element in elements)
         List_types = List[ElementId]()
-        for type in types :
-            List_types.Add(type)
+
+        if isinstance(elements, Iterable):
+            types =  (element.Symbol for element in elements)
+            for type in types :
+                List_types.Add(type)
+        else:
+            List_types.Add(elements)
 
         return List_types
 
