@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-__title__ = "Select all electrical elements"
+__title__ = "TEST"
 __author__ = "FERMI"
 __helpurl__ = "www.fermi.fr"
 __highlight__ = "new"                               # Button will have an orange dot + Description in Revit UI
@@ -57,16 +57,8 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.all_elements_MEP_electrical
-    types =
     # for e in elements:
     #     print e.Name
     get_schedulable_elements(elements)
