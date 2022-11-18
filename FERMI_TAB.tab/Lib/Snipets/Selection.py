@@ -69,7 +69,7 @@ class SelectMEP_All_ElectricalElements:
 def get_schedulable_elements(elements):
     print elements
     for element in elements:
-        print element.GetType()
+        print element.GetType().GetPArameters()
 
 
 
