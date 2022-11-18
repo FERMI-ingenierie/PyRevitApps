@@ -108,8 +108,14 @@ class SelectMEP_All_ElectricalElements:
     @classmethod
     def schedulable(cls, elements):
         types = cls.get_unique_types(elements)
+
+
+
+
         ids = cls.get_types_ids(types)
 
+        
+        print ('-' * 100)
         for id in ids:
             print id
 
