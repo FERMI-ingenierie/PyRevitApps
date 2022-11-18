@@ -26,7 +26,7 @@ class SelectMEP_All_ElectricalElements:
     filter = all_MEP_electrical()
 
     def __init__(self, document):
-        all_electrical = FilteredElementCollector(document)\
+        self.List_Elements = FilteredElementCollector(document)\
                                 .WherePasses(self.filter)\
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
@@ -40,8 +40,10 @@ class SelectMEP_All_ElectricalElements:
         return self.List_Elements
 
     @property
-    def all_elements_MEP_electricalIds(self):
-        return self.List_ElementsId
+    def all_elementsIds_MEP_electrical(self):
+        # return self.List_Elements
+        return self.List_Elements.ForEach(Element.Id)
+
     #
     # @property
     # def get_MEP_class(self):
