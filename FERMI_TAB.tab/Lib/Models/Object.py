@@ -29,6 +29,10 @@ class ManufacturerProduct:
     def set_data(self, key, value):
         setattr(self, key, value)
 
+    @property
+    def test(self):
+        return getattr(self, "key_Fabricant")
+
 
 
 

@@ -48,30 +48,27 @@ if __name__ == '__main__':
 
     # Récupérer les paramètres de type
     symbols = SelectMepElectricalElements(document=doc).get_unique_types
+    products = []
+    product_parameters = ManufacturerProduct.parameters_names
+
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
 
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
-        maxvalue = symbols.Count
-        pb.max_value = maxvalue
-        products = []
 
         for symbol in symbols:
             product = ManufacturerProduct()
-            parameters = product.parameters_names
+
             if pb.cancelled:
                 break
             else :
                 try:
-                    max = maxvalue * len(parameters)
-                    for parameter in parameters:
+                    maxvalue = symbols.Count * len(product_parameters)
+                    for parameter in product_parameters:
                         progressbar_counter += 1
-                        pb.update_progress(progressbar_counter, max)
-                        print ("parameter : ", parameter)
+                        pb.update_progress(progressbar_counter, maxvalue)
                         result = symbol.LookupParameter(parameter).AsValueString()
-                        print ("result : ", result)
-
                         setattr(product,parameter, symbol.LookupParameter(parameter).AsValueString())
 
                     products.append(product)
@@ -83,5 +80,5 @@ if __name__ == '__main__':
         print products
         print ('-' * 100)
         for p in products:
-            print p.product_information
+            print p.test
 
