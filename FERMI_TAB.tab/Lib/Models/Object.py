@@ -3,7 +3,7 @@
 class ManufacturerProduct:
 
     def __init__(self):
-        self.key_Schedulable = 'SP_FER_SCH_Schedulable'
+        # self.key_Schedulable = 'SP_FER_SCH_Schedulable'
         self.key_Fabricant = 'SP_FER_ID_Fabricant'
         self.key_Fabricant_gamme = 'SP_FER_ID_Fabricant gamme'
         self.key_Fabricant_reference = 'SP_FER_ID_Fabricant référence'
@@ -30,8 +30,7 @@ class ManufacturerProduct:
 
     @property
     def parameters (self):
-        return (self.key_Schedulable,
-                self.key_Fabricant,
+        return (self.key_Fabricant,
                 self.key_Fabricant_gamme,
                 self.key_Fabricant_reference,
                 self.key_Product_URL)
