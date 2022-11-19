@@ -27,6 +27,10 @@ from Snipets.Filters import all_MEP_electrical
 uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
 
+
+
+
+
 class SelectMEP_All_ElectricalElements:
 
     List_Elements = List[Element]()
