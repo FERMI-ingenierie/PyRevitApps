@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-    with ProgressBar(title='Processing ... ({value} of {max_value})',cancellable=True) as pb:
+    with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
         for s in symbols:
