@@ -21,10 +21,11 @@ class ManufacturerProduct:
 
     @property
     def parameters_names (self):
-        return self.key_Fabricant,\
-               self.key_Fabricant_gamme,\
-               self.key_Fabricant_reference,\
-               self.key_Product_URL
+        return "SP_FER_ID_Fabricant", "SP_FER_ID_Fabricant gamme", "SP_FER_ID_Fabricant référence", "SP_FER_ID_Product URL"
+            # self.key_Fabricant,\
+            #    self.key_Fabricant_gamme,\
+            #    self.key_Fabricant_reference,\
+            #    self.key_Product_URL
 
     def set_data(self, key, value):
         setattr(self, key, value,)
