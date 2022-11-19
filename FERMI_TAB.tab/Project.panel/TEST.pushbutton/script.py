@@ -64,11 +64,9 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
 
-                try:
-                    p = [symbole.LookupParameter(parameter).Name() for parameter in parameters]
 
-                except AttributeError:
-                    print ("AttributeError !")
+                p = [symbole.LookupParameter(parameter).Name() for parameter in parameters]
+
 
                 print product.product_information
 
