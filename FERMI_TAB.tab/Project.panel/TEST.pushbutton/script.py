@@ -29,6 +29,7 @@ clr.AddReference("RevitServices")
 from pyrevit.forms import ProgressBar
 # from pyrevit import revit, forms
 from Snipets.Selection import SelectMepElectricalElements
+from Models.Object import ManufacturerProduct
 
 doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
@@ -39,8 +40,9 @@ progressbar_counter = 0
 progressbar_step = 40
 
 
-from Models.Object import ManufacturerProduct
 
+products = []
+product_parameters = ManufacturerProduct().parameters_names
 
 if __name__ == '__main__':
 
@@ -53,13 +55,11 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-    with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
+    with ProgressBar(title='Processing ... ({value} de {max_value})',
+                     cancellable=True,
+                     step = progressbar_step) as pb:
+
         symbols = SelectMepElectricalElements(document=doc).get_unique_types
-        products = []
-        product_parameters = ManufacturerProduct().parameters_names
-        print product_parameters
-        print type(product_parameters)
-        print ('-' * 100)
 
         for symbol in symbols:
             product = ManufacturerProduct()
@@ -68,7 +68,7 @@ if __name__ == '__main__':
                 break
             else :
                 try:
-                    maxvalue = symbols.Count
+                    maxvalue = symbols.Count * len(product_parameters)
                     for parameter in product_parameters:
                         progressbar_counter += 1
                         pb.update_progress(progressbar_counter, maxvalue)
