@@ -51,6 +51,7 @@ if __name__ == '__main__':
     products = []
     product_parameters = ManufacturerProduct.parameters_names
     print product_parameters
+    print type(product_parameters)
     print ('-' * 100)
 
     # Symbols = Symbols.get_unique_types
