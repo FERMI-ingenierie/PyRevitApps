@@ -20,7 +20,7 @@ from Autodesk.Revit.DB import *
 #                                 ElementMulticategoryFilter,\
 #                                 ElementFilter,FamilySymbol, ElementSet
 
-from Snipets.Filters import all_MEP_electrical
+from Snipets.Filters import MEP_Electrical_Categories
 
 
 
@@ -35,7 +35,7 @@ class SelectMEP_All_ElectricalElements:
 
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()
-    filter = all_MEP_electrical()
+    filter = MEP_Electrical_Categories()
 
     def __init__(self, document):
         self.List_Elements = FilteredElementCollector(document)\
