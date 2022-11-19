@@ -33,14 +33,10 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 BuiltInParameter,\
                                 Element,ElementFilter,ElementMulticategoryFilter
 
-
+from pyrevit.forms import ProgressBar
+# from pyrevit import revit, forms
 from Snipets.Selection import SelectMepElectricalElements
 from Snipets.Views import GetActiveView, GetCurrentLevel
-
-
-
-# from pyrevit import revit, forms
-
 
 doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
@@ -48,19 +44,9 @@ uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
 
-from pyrevit.forms import ProgressBar
-
 progressbar             = ProgressBar()
 progressbar_counter      = 0
 progressbar_step         = 1
-
-
-max_value = 1000
-with ProgressBar() as pb:
-    for counter in range(0, max_value):
-        pb.update_progress(counter, max_value)
-
-
 
 if __name__ == '__main__':
     # Récupérer les instances des éléments du projete lectrique ok
@@ -71,23 +57,17 @@ if __name__ == '__main__':
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
-    progressbar_maxvalue = len(symbols)
-
-    for s in symbols:
-        progressbar_counter += 1
-        progressbar.update_progress(progressbar_counter, progressbar_maxvalue)
-        print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).AsValueString()
-
-    print ('-' * 100)
+    progressbar_maxvalue = symbols.Count
 
     for s in symbols:
         try:
+            progressbar_counter += 1
             param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+            progressbar.update_progress(progressbar_counter, progressbar_maxvalue)
             print param
         except AttributeError:
             print "0 - correction"
 
     print ('-' * 100)
-    print symbols.Count
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
