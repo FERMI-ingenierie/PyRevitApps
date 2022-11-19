@@ -63,8 +63,7 @@ if __name__ == '__main__':
     print Symbols
 
     for s in Symbols:
-        s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).ToString()
-        print s
+        print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).ToString()
 
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
