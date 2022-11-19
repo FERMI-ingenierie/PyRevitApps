@@ -66,8 +66,11 @@ if __name__ == '__main__':
     print ('-' * 100)
 
     for s in symbols:
-        param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-        print param
+        try:
+            param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+            print param
+        except AttributeError:
+            print "0 - correction"
 
     print ('-' * 100)
     print symbols.Count
