@@ -78,7 +78,7 @@ if __name__ == '__main__':
     selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsNotElementType().ToElements()
     try:
         for select in selection:
-            print select.GetType().Name
+            print select.GetType().Name()
     except :
         pass
     print ('-' *100)
