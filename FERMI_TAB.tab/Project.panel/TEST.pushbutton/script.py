@@ -69,5 +69,5 @@ if __name__ == '__main__':
          BuiltInCategory.OST_CommunicationDevices,
          BuiltInCategory.OST_Site])
     multi_cat_filter = ElementMulticategoryFilter(categories)
-    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ElementIds()
+    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ElementId()
     print selection
