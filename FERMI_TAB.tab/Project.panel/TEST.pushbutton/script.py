@@ -25,18 +25,10 @@ Author: SAS FERMI"""
 import clr
 clr.AddReference("System")
 clr.AddReference("RevitServices")
-from System.Collections.Generic import List
-
-from Autodesk.Revit.DB import FilteredElementCollector,\
-                                BuiltInCategory,\
-                                ElementId,\
-                                BuiltInParameter,\
-                                Element,ElementFilter,ElementMulticategoryFilter
 
 from pyrevit.forms import ProgressBar
 # from pyrevit import revit, forms
 from Snipets.Selection import SelectMepElectricalElements
-from Snipets.Views import GetActiveView, GetCurrentLevel
 
 doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
@@ -46,9 +38,10 @@ app = __revit__.Application
 progressbar_counter = 0
 progressbar_step = 3
 
-if __name__ == '__main__':
-    import time
 
+from Models.Object import ManufacturerProduct
+
+if __name__ == '__main__':
 
     # Récupérer les instances des éléments du projete lectrique ok
     # Récupérer les types des éléments du projet ok
@@ -69,8 +62,26 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
                 try:
-                    param1 = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-                    param2 = s.LookupParameter('SP_FER_ID_Fabricant').AsString()
+                    k_Schedulable = 'SP_FER_SCH_Schedulable'
+                    k_Fabricant = 'SP_FER_ID_Fabricant'
+                    k_Fabricant_gamme= 'SP_FER_ID_Fabricant gamme'
+                    k_Fabricant_reference = 'SP_FER_ID_Fabricant référence'
+                    k_Product_URL= 'SP_FER_ID_Product URL'
+
+                    v_Schedulable = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+                    v_Fabricant = s.LookupParameter('SP_FER_ID_Fabricant').AsString()
+                    v_Fabricant_gamme= s.LookupParameter('SP_FER_ID_Fabricant gamme').AsString()
+                    v_Fabricant_reference = s.LookupParameter('SP_FER_ID_Fabricant référence').AsString()
+                    v_Product_URL= s.LookupParameter('SP_FER_ID_Product URL').AsString()
+
+                    elements = {k_Schedulable:v_Schedulable,
+                                k_Fabricant:v_Fabricant,
+                                k_Fabricant_gamme:v_Fabricant_gamme,
+                                k_Fabricant_reference:v_Fabricant_reference,
+                                k_Product_URL:v_Product_URL}
+
+
+                    test = ManufacturerProduct.create(elements)
                 except AttributeError:
                     param1 = "erreur"
                     param2 = "erreur"
