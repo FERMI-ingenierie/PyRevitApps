@@ -29,7 +29,7 @@ clr.AddReference("RevitServices")
 from pyrevit.forms import ProgressBar
 # from pyrevit import revit, forms
 from Snipets.Selection import SelectMepElectricalElements
-from Models.Object import ManufacturerProduct
+from Models.ObjectElectrical import ManufacturerProduct
 
 doc = __revit__.ActiveUIDocument.Document
 activeview = doc.ActiveView.Id
@@ -87,7 +87,7 @@ if __name__ == '__main__':
         for p in products:
             print p.product_information
             print p.product_url
-            print p.schedulable
+            print p.is_schedulable
 
         print ("-------", len(products), "...........")
 

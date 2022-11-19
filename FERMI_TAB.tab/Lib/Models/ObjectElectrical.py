@@ -1,6 +1,5 @@
 # # -*- coding: utf-8 -*-
 
-
 class ManufacturerProduct:
 
     def __init__(self):
@@ -11,7 +10,7 @@ class ManufacturerProduct:
         self.key_Product_URL = "SP_FER_ID_Product URL"
 
     @property
-    def schedulable(self):
+    def is_schedulable(self):
         _bool = getattr(self,"SP_FER_SCH_Schedulable",False)
         if _bool == 1 or '1':
             return True
@@ -35,3 +34,25 @@ class ManufacturerProduct:
 
     def set_data(self, key, value):
         setattr(self, key, value,)
+
+
+
+class DatasheetsProductDownloader:
+    def __init__(self):
+        pass
+
+
+    @property
+    def products(self):
+        return False
+
+
+    @products.setter
+    def products(self, elements = []):
+        pass
+
+    def destination_path(self):
+        pass
+
+    def downlaoder(self):
+        pass
