@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     with ProgressBar(title='Processing ... ({value} de {max_value})',
                      cancellable=True,
-                     step = progressbar_step) as pb:
+                     steps = progressbar_step) as pb:
 
         symbols = SelectMepElectricalElements(document=doc).get_unique_types
 
