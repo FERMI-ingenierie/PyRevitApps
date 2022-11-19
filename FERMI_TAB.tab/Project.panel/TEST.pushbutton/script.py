@@ -83,4 +83,6 @@ if __name__ == '__main__':
     except :
         pass
     print ('-' *100)
+    print selection
+    print ('-' *100)
     print len(selection)
