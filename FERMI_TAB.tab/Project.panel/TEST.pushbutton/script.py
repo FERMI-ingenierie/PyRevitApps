@@ -59,11 +59,13 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-
-    with ProgressBar(steps=progressbar_step) as pb:
+    step
+    with ProgressBar(title='Processing ... ({value} of {max_value})') as pb:
+        maxvalue = symbols.Count
+        pb.max_value = maxvalue
         for s in symbols:
             progressbar_counter += 1
-            pb.update_progress(progressbar_counter, symbols.Count)
+            pb.update_progress(progressbar_counter)
             try:
                 param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
                 print param
