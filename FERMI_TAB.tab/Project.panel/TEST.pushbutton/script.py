@@ -63,7 +63,6 @@ if __name__ == '__main__':
     print len(elements)
 
 
-
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
     categories = List[BuiltInCategory](
         [BuiltInCategory.OST_ElectricalFixtures,
@@ -85,4 +84,4 @@ if __name__ == '__main__':
     print ('-' *100)
     print selection
     print ('-' *100)
-    # print len(selection)
+    print selection.Count
