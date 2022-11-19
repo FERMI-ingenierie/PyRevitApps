@@ -32,4 +32,4 @@ class ManufacturerProduct:
 
     @property
     def test(self):
-        return getattr(self, "key_Fabricant", "No value")
+        return getattr(self, "SP_FER_ID_Fabricant", "No value")
