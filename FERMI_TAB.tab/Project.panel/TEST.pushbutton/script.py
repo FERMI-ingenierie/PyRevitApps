@@ -58,6 +58,7 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
     progressbar_maxvalue = symbols.Count
+    print symbols.Count
 
     for s in symbols:
         try:
