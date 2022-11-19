@@ -56,7 +56,7 @@ if __name__ == '__main__':
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         symbols = SelectMepElectricalElements(document=doc).get_unique_types
         products = []
-        product_parameters = ManufacturerProduct.parameters_names
+        product_parameters = ManufacturerProduct().parameters_names
         print product_parameters
         print type(product_parameters)
         print ('-' * 100)
