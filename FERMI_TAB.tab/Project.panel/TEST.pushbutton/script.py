@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # selection = SelectMEP_All_ElectricalElements(document=doc)
     # elements = selection.all_elements_MEP_electrical
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
-    categories = List[BuiltInCategory](BuiltInCategory.OST_ElectricalFixtures,
+    categories = List[BuiltInCategory]([BuiltInCategory.OST_ElectricalFixtures,
                   BuiltInCategory.OST_ElectricalEquipment,
                   BuiltInCategory.OST_LightingFixtures,
                   BuiltInCategory.OST_LightingDevices,
@@ -66,7 +66,7 @@ if __name__ == '__main__':
                   BuiltInCategory.OST_FireAlarmDevices,
                   BuiltInCategory.OST_SecurityDevices,
                   BuiltInCategory.OST_CommunicationDevices,
-                  BuiltInCategory.OST_Site)
+                  BuiltInCategory.OST_Site])
     multi_cat_filter = ElementMulticategoryFilter(categories)
     selection = FilteredElementCollector.WherePasses(multi_cat_filter).WhereElementIsElementType().ElementIds()
     print selection
