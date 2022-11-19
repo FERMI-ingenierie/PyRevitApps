@@ -55,7 +55,8 @@ if __name__ == '__main__':
     # Récupérer les instances des éléments du projete lectrique
     # Récupérer les types des éléments du projet
     # Récupérer les paramètres de type
-    elements = SelectMepAllElectricalElements(document=doc).all_elements_MEP_electrical
+    selection = SelectMepAllElectricalElements(document=doc)
+    elements = selection.all_elements_MEP_electrical
 
     print elements
     print ('-' *100)
