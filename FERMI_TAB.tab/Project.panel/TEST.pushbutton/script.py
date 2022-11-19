@@ -59,18 +59,21 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-    with ProgressBar(title='Processing ... ({value} of {max_value})') as pb:
+    with ProgressBar(title='Processing ... ({value} of {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
         for s in symbols:
-            progressbar_counter += 1
-            pb.update_progress(progressbar_counter,maxvalue)
-            try:
-                param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-            except AttributeError:
-                param = "0"
+            if pb.cancelled:
+                break
+            else :
+                progressbar_counter += 1
+                pb.update_progress(progressbar_counter,maxvalue)
+                try:
+                    param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+                except AttributeError:
+                    param = "0"
 
-            print ('parameter value : {}'.format(param))
+                print ('parameter value : {}'.format(param))
 
         print ('-' * 100)
 
