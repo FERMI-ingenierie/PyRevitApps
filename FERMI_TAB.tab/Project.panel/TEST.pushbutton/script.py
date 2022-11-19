@@ -67,10 +67,11 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 a = symbol.LookupParameter("test")
+                print ("a = ", a)
 
                 p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
 
 
-                print p
+                print ("p = ", p)
 
         print ('-' * 100)
