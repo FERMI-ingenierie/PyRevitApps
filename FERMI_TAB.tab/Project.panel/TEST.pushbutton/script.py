@@ -69,11 +69,13 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
                 try:
-                    param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+                    param1 = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+                    param2 = s.LookupParameter('SP_FER_ID_Fabricant').AsString()
                 except AttributeError:
-                    param = "0"
+                    param1 = "erreur"
+                    param2 = "erreur"
 
-                print ('parameter value : {}'.format(param))
+                print ('parameter value : {} / Fabricant : {}'.format(param1, param2))
 
         print ('-' * 100)
 
