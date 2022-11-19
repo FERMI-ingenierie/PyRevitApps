@@ -62,15 +62,12 @@ if __name__ == '__main__':
 
     for s in symbols:
         print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).AsValueString()
-        
+
     print ('-' * 100)
 
     for s in symbols:
-        try:
-            param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-            print param
-        except :
-            print "erreur"
+        param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+        print param
 
     print ('-' * 100)
     print symbols.Count
