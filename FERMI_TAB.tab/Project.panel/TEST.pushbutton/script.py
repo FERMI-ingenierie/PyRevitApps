@@ -67,9 +67,10 @@ if __name__ == '__main__':
             pb.update_progress(progressbar_counter,maxvalue)
             try:
                 param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-                print ('parameter value : {}'.format(param))
             except AttributeError:
-                print "0 - correction"
+                param = "0"
+
+            print ('parameter value : {}'.format(param))
 
         print ('-' * 100)
 
