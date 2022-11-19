@@ -65,7 +65,7 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 try:
-                    p = [symbole.LookupParameter(parameter) for parameter in parameters]
+                    p = [symbole.LookupParameter(parameter).AsValueString() for parameter in parameters]
 
                 except AttributeError:
                     print ("AttributeError !")
