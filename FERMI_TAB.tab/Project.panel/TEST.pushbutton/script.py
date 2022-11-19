@@ -41,18 +41,19 @@ progressbar_step = 40
 
 from Models.Object import ManufacturerProduct
 
+symbols = SelectMepElectricalElements(document=doc).get_unique_types
+products = []
+product_parameters = ManufacturerProduct.parameters_names
+print product_parameters
+print type(product_parameters)
+print ('-' * 100)
+
 if __name__ == '__main__':
 
     # Récupérer les instances des éléments du projete lectrique ok
     # Récupérer les types des éléments du projet ok
 
     # Récupérer les paramètres de type
-    symbols = SelectMepElectricalElements(document=doc).get_unique_types
-    products = []
-    product_parameters = ManufacturerProduct.parameters_names
-    print product_parameters
-    print type(product_parameters)
-    print ('-' * 100)
 
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
@@ -67,7 +68,7 @@ if __name__ == '__main__':
                 break
             else :
                 try:
-                    maxvalue = symbols.Count * len(product_parameters)
+                    maxvalue = symbols.Count
                     for parameter in product_parameters:
                         progressbar_counter += 1
                         pb.update_progress(progressbar_counter, maxvalue)
