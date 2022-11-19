@@ -75,7 +75,7 @@ class SelectMepElectricalElements:
         return self.List_ElementsId
 
     @property
-    def get_unique_types(self, elements):
+    def get_unique_types(self):
         """
         return all type Symbols for MEP electrical elements as unique
 
@@ -86,7 +86,7 @@ class SelectMepElectricalElements:
         """
         List_types = List[FamilySymbol]()
 
-        elements = [elements] if not isinstance(elements, Iterable) else elements
+        elements = [self.List_Elements] if not isinstance(self.List_Elements, Iterable) else self.List_Elements
         types = ElementSet()
 
         for element in elements:
