@@ -44,11 +44,11 @@ uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
 
-progressbar = ProgressBar()
-progressbar_counter = 0
-progressbar_step = 1
 
 if __name__ == '__main__':
+
+
+
     # Récupérer les instances des éléments du projete lectrique ok
     # Récupérer les types des éléments du projet ok
 
@@ -57,8 +57,11 @@ if __name__ == '__main__':
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
+
+    progressbar = ProgressBar()
+    progressbar_counter = 0
+    progressbar_step = 1
     progressbar.max_value = symbols.Count
-    print symbols.Count
 
     for s in symbols:
         progressbar_counter += 1
