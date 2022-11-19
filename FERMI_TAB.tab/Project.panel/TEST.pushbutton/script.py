@@ -67,8 +67,9 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 try:
-                    products.append(
-                        [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters])
+                    for parameter in parameters:
+                        product.set_datas(parameter, symbol.LookupParameter(parameter).AsValueString())
+                    products.append(product)
                 except :
                     pass
 

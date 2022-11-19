@@ -1,5 +1,6 @@
 # # -*- coding: utf-8 -*-
 
+
 class ManufacturerProduct:
 
     def __init__(self):
@@ -18,22 +19,15 @@ class ManufacturerProduct:
     def product_url(self):
         return "{}".format(getattr(self, "key_Product_URL"))
 
-    @product_information.setter
-    def product_information(self, **kwargs):
-        for key,value in kwargs.items():
-            setattr(self, key, value)
-
-    @product_url.setter
-    def product_url(self, **kwargs):
-        for key,value in kwargs.items():
-            setattr(self, key, value)
-
     @property
     def parameters_names (self):
         return (self.key_Fabricant,
                 self.key_Fabricant_gamme,
                 self.key_Fabricant_reference,
                 self.key_Product_URL)
+
+    def set_datas(self,key, value):
+        setattr(self, key, value)
 
 
 
