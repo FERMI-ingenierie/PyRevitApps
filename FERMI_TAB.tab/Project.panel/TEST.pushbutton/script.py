@@ -55,7 +55,7 @@ if __name__ == '__main__':
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
-        for s in symbols:
+        for symbole in symbols:
             product = ManufacturerProduct()
             parameters = product.key_Product_URL
             if pb.cancelled:
@@ -65,7 +65,7 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 try:
-                    p = [p.append(s.LookupParameter(parameter)) for parameter in parameters]
+                    p = [symbole.LookupParameter(parameter) for parameter in parameters]
 
                 except AttributeError:
                     print ("AttributeError !")
