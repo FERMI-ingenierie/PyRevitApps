@@ -35,11 +35,11 @@ class SelectMepAllElectricalElements:
 
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()
-    filter = MEP_Electrical_Categories()
+    Filter = MEP_Electrical_Categories()
 
     def __init__(self, document):
         self.List_Elements = FilteredElementCollector(document)\
-                                .WherePasses(self.filter)\
+                                .WherePasses(self.Filter)\
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
     @property

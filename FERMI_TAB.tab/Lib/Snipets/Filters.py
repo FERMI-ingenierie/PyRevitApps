@@ -30,4 +30,4 @@ def MEP_Electrical_Categories():
     for category in builtincategories:
         categories.Add(category)
 
-    return categories
+    return ElementMulticategoryFilter(categories)
