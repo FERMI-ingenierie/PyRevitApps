@@ -17,9 +17,6 @@ class ManufacturerProduct:
             return True
         return False
 
-
-
-
     @property
     def product_information(self):
         return "{}_{}_{}".format(getattr(self, "SP_FER_ID_Fabricant","Unknown"),
@@ -27,7 +24,7 @@ class ManufacturerProduct:
                                  getattr(self, "SP_FER_ID_Fabricant référence", "Unset"))
     @property
     def product_url(self):
-        return "{}".format(getattr(self, "key_Product_URL"))
+        return "{}".format(getattr(self, "SP_FER_ID_Product URL", False))
 
     @property
     def parameters_names (self):
