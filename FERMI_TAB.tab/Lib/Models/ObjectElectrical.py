@@ -1,5 +1,11 @@
 # # -*- coding: utf-8 -*-
 
+import sys
+sys.path.append(r"C:\\Users\\jérôme PETITJEAN\\AppData\\Roaming\\pyRevit-Master\\site-packages")
+
+import request
+
+
 class ManufacturerProduct:
 
     def __init__(self):
