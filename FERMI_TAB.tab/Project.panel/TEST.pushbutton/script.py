@@ -55,7 +55,7 @@ if __name__ == '__main__':
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
-        print symbols
+        products = []
 
         for symbol in symbols:
             product = ManufacturerProduct()
@@ -67,16 +67,13 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 try:
-                    a = symbol.LookupParameter("SP_FER_ID_Fabricant")
-                    print ("a = ", a)
+                    products.append(
+                        [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters])
                 except :
-                    print ("erreur")
-
-                try:
-                    p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
-                    print ("p = ", p)
-
-                except :
-                    print ("erreur")
+                    pass
 
         print ('-' * 100)
+        print products
+        print ('-' * 100)
+        print (p.product_information for p in products)
+
