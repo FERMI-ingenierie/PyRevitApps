@@ -59,9 +59,6 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
     print Symbols
-    print ('-' *100)
-    print Symbols.Count()
-    print ('-' *100)
 
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
