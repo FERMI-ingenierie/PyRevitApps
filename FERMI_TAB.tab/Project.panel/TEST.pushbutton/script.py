@@ -50,6 +50,8 @@ if __name__ == '__main__':
     symbols = SelectMepElectricalElements(document=doc).get_unique_types
     products = []
     product_parameters = ManufacturerProduct.parameters_names
+    print product_parameters
+    print ('-' * 100)
 
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
