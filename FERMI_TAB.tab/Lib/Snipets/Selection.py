@@ -38,6 +38,15 @@ class SelectMepElectricalElements:
     Filter = MEP_Electrical_Categories()
 
     def __init__(self, document):
+        """
+        Filter electrical elements selector constructor
+
+        :param document: Current document
+        :type document: Document
+        :return: None
+        :rtype: None
+        """
+
         self.List_Elements = FilteredElementCollector(document)\
                                 .WherePasses(self.Filter)\
                                 .WhereElementIsNotElementType()\
