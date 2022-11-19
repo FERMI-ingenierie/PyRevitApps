@@ -72,9 +72,11 @@ if __name__ == '__main__':
                 except :
                     print ("erreur")
 
-                p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
+                try:
+                    p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
+                    print ("p = ", p)
 
-
-                print ("p = ", p)
+                except :
+                    print ("erreur")
 
         print ('-' * 100)
