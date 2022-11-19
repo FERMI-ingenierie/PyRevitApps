@@ -55,7 +55,7 @@ if __name__ == '__main__':
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
-        for symbole in symbols:
+        for symbol in symbols:
             product = ManufacturerProduct()
             parameters = product.parameters_names
             if pb.cancelled:
@@ -64,11 +64,9 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
 
-                p = [symbole.LookupParameter(parameter).AsValueString() for parameter in parameters]
+                p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
 
 
                 print p
 
         print ('-' * 100)
-
-    # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
