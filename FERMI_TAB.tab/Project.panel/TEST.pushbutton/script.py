@@ -67,12 +67,12 @@ if __name__ == '__main__':
         progressbar_counter += 1
         progressbar.update_progress(progressbar_counter, symbols.Count)
 
-        try:
-            param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-            print param
-        except AttributeError:
-            print "0 - correction"
-
-    print ('-' * 100)
+        # try:
+        #     param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+        #     print param
+        # except AttributeError:
+        #     print "0 - correction"
+    #
+    # print ('-' * 100)
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
