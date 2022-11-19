@@ -63,13 +63,14 @@ if __name__ == '__main__':
             if pb.cancelled:
                 break
             else :
-                progressbar_counter += 1
-                pb.update_progress(progressbar_counter,maxvalue)
-
                 try:
                     for parameter in parameters:
+                        progressbar_counter += 1
+                        pb.update_progress(progressbar_counter, maxvalue)
                         product.set_datas(parameter, symbol.LookupParameter(parameter).AsValueString())
+
                     products.append(product)
+                    
                 except :
                     pass
 
