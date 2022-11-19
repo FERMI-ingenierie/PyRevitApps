@@ -57,12 +57,15 @@ if __name__ == '__main__':
         pb.max_value = maxvalue
         for symbole in symbols:
             product = ManufacturerProduct()
-            parameters = product.key_Product_URL
+            parameters = product.product_information
             if pb.cancelled:
                 break
             else :
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
+
+                for parameter in parameters:
+                    print parameter
 
 
                 p = [symbole.LookupParameter(parameter).AsValueString() for parameter in parameters]
