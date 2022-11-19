@@ -59,7 +59,6 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-    step
     with ProgressBar(title='Processing ... ({value} of {max_value})') as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
