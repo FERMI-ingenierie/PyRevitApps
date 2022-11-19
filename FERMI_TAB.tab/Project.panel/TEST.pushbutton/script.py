@@ -56,7 +56,7 @@ if __name__ == '__main__':
     # Récupérer les types des éléments du projet
     # Récupérer les paramètres de type
     Symbols = SelectMepElectricalElements(document=doc)
-    Symbols = Symbols.get_unique_types()
+    Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
     print Symbols
