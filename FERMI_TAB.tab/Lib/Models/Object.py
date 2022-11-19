@@ -21,7 +21,7 @@ class ManufacturerProduct:
 
     @property
     def parameters_names (self):
-        return "SP_FER_ID_Fabricant", "SP_FER_ID_Fabricant gamme", "SP_FER_ID_Fabricant référence", "SP_FER_ID_Product URL"
+        return 'SP_FER_ID_Fabricant', 'SP_FER_ID_Fabricant gamme', 'SP_FER_ID_Fabricant référence', 'SP_FER_ID_Product URL'
             # self.key_Fabricant,\
             #    self.key_Fabricant_gamme,\
             #    self.key_Fabricant_reference,\
