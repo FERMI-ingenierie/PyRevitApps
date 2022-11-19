@@ -43,7 +43,13 @@ activeview = doc.ActiveView.Id
 uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
+progressbar_counter = 0
+progressbar_step = 3
 
+max_value = 1000
+with ProgressBar() as pb:
+    for counter in range(0, max_value):
+        pb.update_progress(counter, max_value)
 
 if __name__ == '__main__':
     import time
@@ -58,22 +64,17 @@ if __name__ == '__main__':
     # elements = selection.all_elements_MEP_electrical
 
 
-    progressbar = ProgressBar()
-    progressbar_counter = 0
-    progressbar_step = 1
-    progressbar.max_value = symbols.Count
 
-    for s in symbols:
-        time.sleep(0.02)
-        progressbar_counter += 1
-        progressbar.update_progress(progressbar_counter, symbols.Count)
+    with ProgressBar(steps=progressbar_step) as pb:
+        for s in symbols:
+            progressbar_counter += 1
+            pb.update_progress(progressbar_counter, symbols.Count)
+            try:
+                param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+                print param
+            except AttributeError:
+                print "0 - correction"
 
-        # try:
-        #     param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-        #     print param
-        # except AttributeError:
-        #     print "0 - correction"
-    #
-    # print ('-' * 100)
+        print ('-' * 100)
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
