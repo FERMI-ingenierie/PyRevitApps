@@ -64,6 +64,8 @@ if __name__ == '__main__':
 
     for s in Symbols:
         print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).AsValueString()
+        param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
+        print param
 
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
