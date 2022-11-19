@@ -48,17 +48,11 @@ uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
 
-from pyrevit.forms import ProgressBar as PB
+from pyrevit.forms import ProgressBar
 
-class ProgressBar (PB):
-    super(PB).__init__()
-    counter = 0
-
-    def update (self):
-        self.counter += 1
-        self.update_progress(self.counter, self.max_value)
-
-progressbar = ProgressBar()
+progressbar             = ProgressBar()
+progressbar_counter      = 0
+progressbar_step         = 1
 
 
 max_value = 1000
@@ -77,10 +71,11 @@ if __name__ == '__main__':
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
-    progressbar.max_value = len(symbols)
+    progressbar_maxvalue = len(symbols)
 
     for s in symbols:
-        progressbar.update()
+        progressbar_counter += 1
+        progressbar.update_progress(progressbar_counter, progressbar_maxvalue)
         print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).AsValueString()
 
     print ('-' * 100)
