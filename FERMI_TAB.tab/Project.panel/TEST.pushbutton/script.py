@@ -64,14 +64,10 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
 
-                for parameter in parameters:
-                    print parameter
-
-
                 p = [symbole.LookupParameter(parameter).AsValueString() for parameter in parameters]
 
 
-                print product.product_information
+                print p
 
         print ('-' * 100)
 
