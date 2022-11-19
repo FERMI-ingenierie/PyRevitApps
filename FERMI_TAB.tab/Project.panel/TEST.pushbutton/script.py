@@ -67,22 +67,27 @@ if __name__ == '__main__':
             if pb.cancelled:
                 break
             else :
+                maxvalue = symbols.Count * len(product_parameters)
                 try:
-                    maxvalue = symbols.Count * len(product_parameters)
                     for parameter in product_parameters:
+
                         progressbar_counter += 1
                         pb.update_progress(progressbar_counter, maxvalue)
-
-                        product.set_data(parameter,symbol.LookupParameter(parameter).AsValueString())
-
-                    products.append(product)
+                        product.set_data(parameter, symbol.LookupParameter(parameter).AsValueString())
 
                 except AttributeError:
-                    print ('Passed : AttributeError')
+                    pass
+
+                finally:
+                    products.append(product)
+
+                print ('Passed : AttributeError')
 
         print ('-' * 100)
         for p in products:
             print p.product_information
             print p.product_url
             print p.schedulable
+
+        print ("-------", len(products), "...........")
 
