@@ -55,14 +55,9 @@ if __name__ == '__main__':
     with ProgressBar(title='Processing ... ({value} de {max_value})',cancellable=True) as pb:
         maxvalue = symbols.Count
         pb.max_value = maxvalue
-
-        k_Schedulable = 'SP_FER_SCH_Schedulable'
-        k_Fabricant = 'SP_FER_ID_Fabricant'
-        k_Fabricant_gamme = 'SP_FER_ID_Fabricant gamme'
-        k_Fabricant_reference = 'SP_FER_ID_Fabricant référence'
-        k_Product_URL = 'SP_FER_ID_Product URL'
-
         for s in symbols:
+            product = ManufacturerProduct()
+            parameters = product.key_Product_URL
             if pb.cancelled:
                 break
             else :
@@ -70,22 +65,12 @@ if __name__ == '__main__':
                 pb.update_progress(progressbar_counter,maxvalue)
 
                 try:
-                    v_Schedulable = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
-                    v_Fabricant = s.LookupParameter('SP_FER_ID_Fabricant').AsString()
-                    v_Fabricant_gamme= s.LookupParameter('SP_FER_ID_Fabricant gamme').AsString()
-                    v_Fabricant_reference = s.LookupParameter('SP_FER_ID_Fabricant référence').AsString()
-                    v_Product_URL= s.LookupParameter('SP_FER_ID_Product URL').AsString()
+                    p = [p.append(s.LookupParameter(parameter)) for parameter in parameters]
 
-                    elements = {k_Schedulable:v_Schedulable,
-                                k_Fabricant:v_Fabricant,
-                                k_Fabricant_gamme:v_Fabricant_gamme,
-                                k_Fabricant_reference:v_Fabricant_reference,
-                                k_Product_URL:v_Product_URL}
-
-                    test = ManufacturerProduct.create(elements)
-                    print test
                 except AttributeError:
                     print ("AttributeError !")
+
+                print product.product_information
 
         print ('-' * 100)
 
