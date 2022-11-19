@@ -62,6 +62,8 @@ if __name__ == '__main__':
 
     for s in symbols:
         print s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION).AsValueString()
+        
+    print ('-' * 100)
 
     for s in symbols:
         try:
