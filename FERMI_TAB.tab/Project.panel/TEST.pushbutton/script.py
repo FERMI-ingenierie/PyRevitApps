@@ -55,12 +55,13 @@ if __name__ == '__main__':
     # Récupérer les instances des éléments du projete lectrique
     # Récupérer les types des éléments du projet
     # Récupérer les paramètres de type
-    # selection = SelectMEP_All_ElectricalElements(document=doc)
-    # elements = selection.all_elements_MEP_electrical
-    #
-    # print elements
-    # print ('-' *100)
-    # print len(elements)
+    selection = SelectMEP_All_ElectricalElements(document=doc)
+    elements = selection.all_elements_MEP_electrical
+
+    print elements
+    print ('-' *100)
+    print len(elements)
+    print ('-' *100)
 
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
