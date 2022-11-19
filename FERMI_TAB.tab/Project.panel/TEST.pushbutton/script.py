@@ -67,7 +67,6 @@ if __name__ == '__main__':
             if pb.cancelled:
                 break
             else :
-                try:
                     maxvalue = symbols.Count * len(product_parameters)
                     for parameter in product_parameters:
                         progressbar_counter += 1
@@ -76,9 +75,6 @@ if __name__ == '__main__':
                         product.set_data(parameter,symbol.LookupParameter(parameter).AsValueString())
 
                     products.append(product)
-
-                except :
-                    pass
 
         print ('-' * 100)
         for p in products:
