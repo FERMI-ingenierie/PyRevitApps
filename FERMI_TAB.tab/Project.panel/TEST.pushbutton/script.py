@@ -64,7 +64,7 @@ if __name__ == '__main__':
         pb.max_value = maxvalue
         for s in symbols:
             progressbar_counter += 1
-            pb.update_progress(progressbar_counter)
+            pb.update_progress(progressbar_counter,maxvalue)
             try:
                 param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
                 print param
