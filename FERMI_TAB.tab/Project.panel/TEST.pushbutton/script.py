@@ -57,7 +57,7 @@ if __name__ == '__main__':
         pb.max_value = maxvalue
         for symbole in symbols:
             product = ManufacturerProduct()
-            parameters = product.product_information
+            parameters = product.parameters_names
             if pb.cancelled:
                 break
             else :

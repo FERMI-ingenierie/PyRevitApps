@@ -29,7 +29,7 @@ class ManufacturerProduct:
             setattr(self, key, value)
 
     @property
-    def parameters (self):
+    def parameters_names (self):
         return (self.key_Fabricant,
                 self.key_Fabricant_gamme,
                 self.key_Fabricant_reference,
