@@ -46,11 +46,6 @@ app = __revit__.Application
 progressbar_counter = 0
 progressbar_step = 3
 
-max_value = 1000
-with ProgressBar() as pb:
-    for counter in range(0, max_value):
-        pb.update_progress(counter, max_value)
-
 if __name__ == '__main__':
     import time
 
