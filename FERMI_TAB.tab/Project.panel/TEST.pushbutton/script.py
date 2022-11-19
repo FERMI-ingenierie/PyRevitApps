@@ -69,3 +69,4 @@ if __name__ == '__main__':
                   BuiltInCategory.OST_Site)
     multi_cat_filter = ElementMulticategoryFilter(categories)
     selection = FilteredElementCollector.WherePasses(multi_cat_filter).WhereElementIsElementType().ElementIds()
+    print selection
