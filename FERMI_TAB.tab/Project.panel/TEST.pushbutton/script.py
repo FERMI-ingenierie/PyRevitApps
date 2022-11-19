@@ -64,10 +64,10 @@ if __name__ == '__main__':
                 break
             else :
                 try:
-                    maxvalue = maxvalue * len(parameters)
+                    max = maxvalue * len(parameters)
                     for parameter in parameters:
                         progressbar_counter += 1
-                        pb.update_progress(progressbar_counter, maxvalue)
+                        pb.update_progress(progressbar_counter, max)
                         product.set_datas(parameter, symbol.LookupParameter(parameter).AsValueString())
 
                     products.append(product)
