@@ -57,13 +57,13 @@ if __name__ == '__main__':
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
-    progressbar_maxvalue = symbols.Count
+    progressbar.max_value = symbols.Count
     print symbols.Count
 
     for s in symbols:
         progressbar_counter += 1
-        progressbar.update_progress(progressbar_counter, progressbar_maxvalue)
-        
+        progressbar.update_progress(progressbar_counter, symbols.Count)
+
         try:
             param = s.LookupParameter('SP_FER_SCH_Schedulable').AsInteger()
             print param
