@@ -36,7 +36,7 @@ uidoc = __revit__.ActiveUIDocument
 app = __revit__.Application
 
 progressbar_counter = 0
-progressbar_step = 3
+progressbar_step = 40
 
 
 from Models.Object import ManufacturerProduct
