@@ -26,7 +26,7 @@ class ManufacturerProduct:
                 self.key_Fabricant_reference,
                 self.key_Product_URL)
 
-    def set_datas(self,key, value):
+    def set_data(self, key, value):
         setattr(self, key, value)
 
 

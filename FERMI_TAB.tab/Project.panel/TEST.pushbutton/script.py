@@ -68,7 +68,11 @@ if __name__ == '__main__':
                     for parameter in parameters:
                         progressbar_counter += 1
                         pb.update_progress(progressbar_counter, max)
-                        product.set_datas(parameter, symbol.LookupParameter(parameter).AsValueString())
+                        print ("parameter : ", parameter)
+                        result = symbol.LookupParameter(parameter).AsValueString()
+                        print ("result : ", result)
+
+                        setattr(product,parameter, symbol.LookupParameter(parameter).AsValueString())
 
                     products.append(product)
 
