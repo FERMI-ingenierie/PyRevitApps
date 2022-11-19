@@ -66,8 +66,11 @@ if __name__ == '__main__':
                 progressbar_counter += 1
                 pb.update_progress(progressbar_counter,maxvalue)
 
-                a = symbol.LookupParameter("SP_FER_ID_Fabricant")
-                print ("a = ", a)
+                try:
+                    a = symbol.LookupParameter("SP_FER_ID_Fabricant")
+                    print ("a = ", a)
+                except :
+                    print ("erreur")
 
                 p = [symbol.LookupParameter(parameter).AsValueString() for parameter in parameters]
 
