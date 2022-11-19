@@ -4,7 +4,7 @@
 class ManufacturerProduct:
 
     def __init__(self):
-        # self.key_Schedulable = 'SP_FER_SCH_Schedulable'
+        self.key_Schedulable = 'SP_FER_SCH_Schedulable'
         self.key_Fabricant = "SP_FER_ID_Fabricant"
         self.key_Fabricant_gamme = "SP_FER_ID_Fabricant gamme"
         self.key_Fabricant_reference = "SP_FER_ID_Fabricant référence"
