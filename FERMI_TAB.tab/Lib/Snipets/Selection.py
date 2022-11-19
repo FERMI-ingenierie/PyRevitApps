@@ -31,7 +31,7 @@ doc = uidoc.Document
 
 
 
-class SelectMEP_All_ElectricalElements:
+class SelectMepAllElectricalElements:
 
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()

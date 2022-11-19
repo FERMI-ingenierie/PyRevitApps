@@ -34,7 +34,7 @@ from Autodesk.Revit.DB import FilteredElementCollector,\
                                 Element,ElementFilter,ElementMulticategoryFilter
 
 
-from Snipets.Selection import SelectMEP_All_ElectricalElements
+from Snipets.Selection import SelectMepAllElectricalElements
 from Snipets.Views import GetActiveView, GetCurrentLevel
 
 
@@ -55,8 +55,7 @@ if __name__ == '__main__':
     # Récupérer les instances des éléments du projete lectrique
     # Récupérer les types des éléments du projet
     # Récupérer les paramètres de type
-    selection = SelectMEP_All_ElectricalElements(document=doc)
-    elements = selection.all_elements_MEP_electrical
+    elements = SelectMepAllElectricalElements(document=doc).all_elements_MEP_electrical
 
     print elements
     print ('-' *100)
