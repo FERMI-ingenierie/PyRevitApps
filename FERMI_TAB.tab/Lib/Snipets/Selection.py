@@ -74,8 +74,8 @@ class SelectMepElectricalElements:
 
         return self.List_ElementsId
 
-    @staticmethod
-    def get_unique_types(elements):
+    @classmethod
+    def get_unique_types(cls,elements):
         """
         return all type Symbols for MEP electrical elements as unique
 
