@@ -77,7 +77,10 @@ if __name__ == '__main__':
          BuiltInCategory.OST_Site])
     multi_cat_filter = ElementMulticategoryFilter(categories)
     selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ToElements()
-    for select in selection:
-        print select.Name
+    try:
+        for select in selection:
+            print select.Name
+    except :
+        pass
     print ('-' *100)
     print len(selection)
