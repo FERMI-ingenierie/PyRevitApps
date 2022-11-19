@@ -78,5 +78,6 @@ if __name__ == '__main__':
         print ('-' * 100)
         print products
         print ('-' * 100)
-        print (p.product_information for p in products)
+        for p in products:
+            print p.product_information
 
