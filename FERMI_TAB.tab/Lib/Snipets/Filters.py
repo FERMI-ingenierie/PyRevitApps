@@ -17,13 +17,17 @@ doc = __revit__.ActiveUIDocument.Document
 
 
 def MEP_Electrical_Categories():
-    return List[BuiltInCategory](
-                    [BuiltInCategory.OST_ElectricalFixtures,
-                     BuiltInCategory.OST_ElectricalEquipment,
-                     BuiltInCategory.OST_LightingFixtures,
-                     BuiltInCategory.OST_LightingDevices,
-                     BuiltInCategory.OST_DataDevices,
-                     BuiltInCategory.OST_FireAlarmDevices,
-                     BuiltInCategory.OST_SecurityDevices,
-                     BuiltInCategory.OST_CommunicationDevices,
-                     BuiltInCategory.OST_Site])
+    categories = List[BuiltInCategory]()
+    builtincategories = [BuiltInCategory.OST_ElectricalFixtures,
+                            BuiltInCategory.OST_ElectricalEquipment,
+                            BuiltInCategory.OST_LightingFixtures,
+                            BuiltInCategory.OST_LightingDevices,
+                            BuiltInCategory.OST_DataDevices,
+                            BuiltInCategory.OST_FireAlarmDevices,
+                            BuiltInCategory.OST_SecurityDevices,
+                            BuiltInCategory.OST_CommunicationDevices,
+                            BuiltInCategory.OST_Site]
+    for category in builtincategories:
+        categories.Add(category)
+
+    return categories
