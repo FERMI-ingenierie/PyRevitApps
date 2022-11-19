@@ -78,6 +78,6 @@ if __name__ == '__main__':
     multi_cat_filter = ElementMulticategoryFilter(categories)
     selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsNotElementType().ToElements()
     for select in selection:
-        print select.Name
+        print select.AsString()
     print ('-' *100)
     print len(selection)
