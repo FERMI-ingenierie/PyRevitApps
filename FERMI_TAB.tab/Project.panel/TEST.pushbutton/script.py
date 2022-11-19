@@ -76,13 +76,13 @@ if __name__ == '__main__':
          BuiltInCategory.OST_CommunicationDevices,
          BuiltInCategory.OST_Site])
     multi_cat_filter = ElementMulticategoryFilter(categories)
-    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsNotElementType().ToElements().GetType()
+    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsNotElementType().ToElements()
     try:
         for select in selection:
-            print select.Name
+            print select.GetType
     except :
         pass
     print ('-' *100)
     print selection
     print ('-' *100)
-    print len(selection)
+    # print len(selection)
