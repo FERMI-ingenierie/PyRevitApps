@@ -83,4 +83,6 @@ if __name__ == '__main__':
         print ('-' * 100)
         for p in products:
             print p.product_information
+            print p.product_url
+            print p.schedulable
 

@@ -11,6 +11,16 @@ class ManufacturerProduct:
         self.key_Product_URL = "SP_FER_ID_Product URL"
 
     @property
+    def schedulable(self):
+        _bool = getattr(self,"SP_FER_SCH_Schedulable",False)
+        if _bool == 1 or '1':
+            return True
+        return False
+
+
+
+
+    @property
     def product_information(self):
         return "{}_{}_{}".format(getattr(self, "SP_FER_ID_Fabricant","Unknown"),
                                  getattr(self, "SP_FER_ID_Fabricant gamme", "Unset"),
