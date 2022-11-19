@@ -12,9 +12,9 @@ class ManufacturerProduct:
 
     @property
     def product_information(self):
-        return "{}_{}_{}".format(getattr(self, "key_Fabricant","Unknown"),
-                                 getattr(self, "key_Fabricant_gamme", "Unset"),
-                                 getattr(self, "key_Fabricant_reference", "Unset"))
+        return "{}_{}_{}".format(getattr(self, "SP_FER_ID_Fabricant","Unknown"),
+                                 getattr(self, "SP_FER_ID_Fabricant gamme", "Unset"),
+                                 getattr(self, "SP_FER_ID_Fabricant référence", "Unset"))
     @property
     def product_url(self):
         return "{}".format(getattr(self, "key_Product_URL"))
@@ -28,7 +28,3 @@ class ManufacturerProduct:
 
     def set_data(self, key, value):
         setattr(self, key, value,)
-
-    @property
-    def test(self):
-        return getattr(self, "SP_FER_ID_Fabricant", "No value")
