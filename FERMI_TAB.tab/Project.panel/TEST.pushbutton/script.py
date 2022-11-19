@@ -81,7 +81,7 @@ if __name__ == '__main__':
                 finally:
                     products.append(product)
 
-                print ('Passed : AttributeError')
+                print ('Passed : AttributeError : ', parameter, "...", symbol )
 
         print ('-' * 100)
         for p in products:
