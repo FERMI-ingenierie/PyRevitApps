@@ -31,7 +31,7 @@ doc = uidoc.Document
 
 
 
-class SelectMepAllElectricalElements:
+class SelectMepElectricalElements:
 
     List_Elements = List[Element]()
     List_ElementsId = List[ElementId]()
@@ -43,7 +43,7 @@ class SelectMepAllElectricalElements:
                                 .WhereElementIsNotElementType()\
                                 .ToElements()
     @property
-    def all_elements_MEP_electrical(self):
+    def all(self):
         """
         return all element MEP electrical define by filter
 
@@ -53,7 +53,7 @@ class SelectMepAllElectricalElements:
         return self.List_Elements
 
     @property
-    def all_elementsIds_MEP_electrical(self):
+    def all_ids(self):
         """
         return all element Ids MEP electrical define by filter
 
