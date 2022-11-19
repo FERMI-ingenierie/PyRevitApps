@@ -76,7 +76,7 @@ if __name__ == '__main__':
          BuiltInCategory.OST_CommunicationDevices,
          BuiltInCategory.OST_Site])
     multi_cat_filter = ElementMulticategoryFilter(categories)
-    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ToElements()
+    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsNotElementType().ToElements().GetType()
     try:
         for select in selection:
             print select.Name
