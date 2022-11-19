@@ -57,19 +57,26 @@ if __name__ == '__main__':
     # Récupérer les paramètres de type
     selection = SelectMEP_All_ElectricalElements(document=doc)
     elements = selection.all_elements_MEP_electrical
-    # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
-    # categories = List[BuiltInCategory](
-    #     [BuiltInCategory.OST_ElectricalFixtures,
-    #      BuiltInCategory.OST_ElectricalEquipment,
-    #      BuiltInCategory.OST_LightingFixtures,
-    #      BuiltInCategory.OST_LightingDevices,
-    #      BuiltInCategory.OST_DataDevices,
-    #      BuiltInCategory.OST_FireAlarmDevices,
-    #      BuiltInCategory.OST_SecurityDevices,
-    #      BuiltInCategory.OST_CommunicationDevices,
-    #      BuiltInCategory.OST_Site])
-    # multi_cat_filter = ElementMulticategoryFilter(categories)
-    # selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ToElementIds()
+
     print elements
     print ('-' *100)
     print len(elements)
+
+
+
+    # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
+    categories = List[BuiltInCategory](
+        [BuiltInCategory.OST_ElectricalFixtures,
+         BuiltInCategory.OST_ElectricalEquipment,
+         BuiltInCategory.OST_LightingFixtures,
+         BuiltInCategory.OST_LightingDevices,
+         BuiltInCategory.OST_DataDevices,
+         BuiltInCategory.OST_FireAlarmDevices,
+         BuiltInCategory.OST_SecurityDevices,
+         BuiltInCategory.OST_CommunicationDevices,
+         BuiltInCategory.OST_Site])
+    multi_cat_filter = ElementMulticategoryFilter(categories)
+    selection = FilteredElementCollector(doc).WherePasses(multi_cat_filter).WhereElementIsElementType().ToElements().Name()
+    print selection
+    print ('-' *100)
+    print len(selection)
