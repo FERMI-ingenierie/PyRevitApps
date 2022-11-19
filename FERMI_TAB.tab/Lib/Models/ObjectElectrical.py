@@ -1,10 +1,6 @@
 # # -*- coding: utf-8 -*-
 
-import sys
-sys.path.append(r"C:\\Users\\jérôme PETITJEAN\\AppData\\Roaming\\pyRevit-Master\\site-packages")
-
-import request
-
+import requests
 
 class ManufacturerProduct:
 
@@ -43,8 +39,64 @@ class ManufacturerProduct:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+downloadUrl = 'https://www.trilux.com/products/pdf/o____F010228293.pdf'
+
+req = requests.get(downloadUrl)
+filename = req.url[downloadUrl.rfind('/')+1:]
+
+with open(filename, 'wb') as f:
+    for chunk in req.iter_content(chunk_size=8192):
+        if chunk:
+            f.write(chunk)
+
+def download_file(url, filename=''):
+    try:
+        if filename:
+            pass
+        else:
+            filename = req.url[downloadUrl.rfind('/')+1:]
+
+        with requests.get(url) as req:
+            with open(filename, 'wb') as f:
+                for chunk in req.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+            return filename
+    except Exception as e:
+        print(e)
+        return None
+
+
+downloadLink = 'https://www.trilux.com/products/pdf/o____F010228293.pdf'
+
+download_file(url=downloadLink, filename='aaaaa.pdf')
+
+
+
 class DatasheetsProductDownloader:
-    def __init__(self):
+    downloadUrl = ''
+
+    def __init__(self, manufacturer_product):
+        """
+        Download datasheets products
+
+        :param manufacturer_product: products
+        :type manufacturer_product: ManufacturerProduct
+        :return None
+        :return
+        """
         pass
 
 
