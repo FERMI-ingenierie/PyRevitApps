@@ -46,7 +46,7 @@ app = __revit__.Application
 
 
 if __name__ == '__main__':
-
+    import time
 
 
     # Récupérer les instances des éléments du projete lectrique ok
@@ -64,6 +64,7 @@ if __name__ == '__main__':
     progressbar.max_value = symbols.Count
 
     for s in symbols:
+        time.sleep(0.02)
         progressbar_counter += 1
         progressbar.update_progress(progressbar_counter, symbols.Count)
 
