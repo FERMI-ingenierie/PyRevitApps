@@ -52,14 +52,19 @@ app = __revit__.Application
 
 
 if __name__ == '__main__':
-    # Récupérer les instances des éléments du projete lectrique
-    # Récupérer les types des éléments du projet
+    # Récupérer les instances des éléments du projete lectrique ok
+    # Récupérer les types des éléments du projet ok
+
     # Récupérer les paramètres de type
     Symbols = SelectMepElectricalElements(document=doc).get_unique_types
     # Symbols = Symbols.get_unique_types
     # elements = selection.all_elements_MEP_electrical
 
     print Symbols
+
+    for s in Symbols:
+        s.get_Parameter(BuiltInParameter.ALL_MODEL_DESCRIPTION)
+        print s
 
 
     # schedulable = SelectMEP_All_ElectricalElements.schedulable(elements)
